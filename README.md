@@ -4,8 +4,8 @@ This is a template repo used for creating new packages for `stactools`.
 
 ## How to use
 
-[![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral)](https://pypi.org/project/stactools-ephemeral/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/ephemeral/main?filepath=docs/installation_and_basic_usage.ipynb)
+[![PyPI](https://img.shields.io/pypi/v/stactools-drcog-lulc)](https://pypi.org/project/stactools-drcog-lulc/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/drcog-lulc/main?filepath=docs/installation_and_basic_usage.ipynb)
 
 - Name: drcog-lulc
 - Package: `stactools.drcog-lulc`
@@ -44,4 +44,4 @@ To create a STAC `Catalog` from a list of DRCOG asset hrefs:
 $ stac drcog-lulc create-catalog examples/file-list-061.txt examples/XXXX
 ```
 
-Use `stac ephemeral --help` to see all subcommands and options.
+Use `stac drcog-lulc --help` to see all subcommands and options.
