@@ -1,12 +1,5 @@
 # stactools-drcog-lulc
 
-This is a template repo used for creating new packages for `stactools`.
-
-## How to use
-
-[![PyPI](https://img.shields.io/pypi/v/stactools-drcog-lulc)](https://pypi.org/project/stactools-drcog-lulc/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/drcog-lulc/main?filepath=docs/installation_and_basic_usage.ipynb)
-
 - Name: drcog-lulc
 - Package: `stactools.drcog-lulc`
 - PyPI: https://pypi.org/project/stactools-drcog-lulc/
@@ -18,10 +11,8 @@ This is a template repo used for creating new packages for `stactools`.
   - [proj](https://github.com/stac-extensions/projection)
   - [raster](https://github.com/stac-extensions/raster)
   - [scientific](https://github.com/stac-extensions/scientific)
-- Extra fields:
-  - TBD
 
-This repository will assist you in the generation of STAC files for DRCOG LULC datasets.
+This repository will assist you in the generation of STAC files for Denver Regional Council of Goverments (DRCOG) Land Use/Land Cover (LULC) dataset. 
 
 ## Examples
 
