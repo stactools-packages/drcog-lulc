@@ -1,7 +1,5 @@
 # stactools-drcog-lulc
 
-This is a template repo used for creating new packages for `stactools`.
-
 - Name: drcog-lulc
 - Package: `stactools.drcog-lulc`
 - PyPI: https://pypi.org/project/stactools-drcog-lulc/
@@ -16,7 +14,9 @@ This is a template repo used for creating new packages for `stactools`.
 - Extra fields:
   - TBD
 
-This repository will assist you in the generation of STAC files for DRCOG LULC datasets.
+This repository will assist you in the generation of STAC files for Denver Regional Council of Goverments (DRCOG) Land Use/Land Cover (LULC) dataset. 
+
+The 2018 DRCOG LULC pilot project is a partnership between the Babbit Center for Land and Water Policy, the Chesapeak Conservancy's Convservation Innovation Center (CIC), and DRCOG. 
 
 ## Examples
 
