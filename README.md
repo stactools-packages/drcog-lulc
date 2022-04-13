@@ -14,8 +14,6 @@
 
 This repository will assist you in the generation of STAC files for Denver Regional Council of Goverments (DRCOG) Land Use/Land Cover (LULC) dataset. 
 
-The 2018 DRCOG LULC pilot project is a partnership between the Babbit Center for Land and Water Policy, the Chesapeake Conservancy's Convservation Innovation Center (CIC), and DRCOG. 
-
 ## Examples
 
 ### STAC objects
