@@ -11,8 +11,6 @@
   - [proj](https://github.com/stac-extensions/projection)
   - [raster](https://github.com/stac-extensions/raster)
   - [scientific](https://github.com/stac-extensions/scientific)
-- Extra fields:
-  - TBD
 
 This repository will assist you in the generation of STAC files for Denver Regional Council of Goverments (DRCOG) Land Use/Land Cover (LULC) dataset. 
 
