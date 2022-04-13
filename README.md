@@ -2,11 +2,6 @@
 
 This is a template repo used for creating new packages for `stactools`.
 
-## How to use
-
-[![PyPI](https://img.shields.io/pypi/v/stactools-drcog-lulc)](https://pypi.org/project/stactools-drcog-lulc/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/drcog-lulc/main?filepath=docs/installation_and_basic_usage.ipynb)
-
 - Name: drcog-lulc
 - Package: `stactools.drcog-lulc`
 - PyPI: https://pypi.org/project/stactools-drcog-lulc/
