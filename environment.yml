@@ -1,4 +1,4 @@
-name: stactools-ephemeral
+name: stactools-drcog-lulc
 channels:
   - conda-forge
   - defaults

@@ -1,17 +1,17 @@
-# stactools-ephemeral
+# stactools-drcog-lulc
 
-[![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral)](https://pypi.org/project/stactools-ephemeral/)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/ephemeral/main?filepath=docs/installation_and_basic_usage.ipynb)
+[![PyPI](https://img.shields.io/pypi/v/stactools-drcog-lulc)](https://pypi.org/project/stactools-drcog-lulc/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/drcog-lulc/main?filepath=docs/installation_and_basic_usage.ipynb)
 
-- Name: ephemeral
-- Package: `stactools.ephemeral`
-- PyPI: https://pypi.org/project/stactools-ephemeral/
+- Name: drcog-lulc
+- Package: `stactools.drcog_lulc`
+- PyPI: https://pypi.org/project/stactools-drcog-lulc/
 - Owner: @githubusername
 - Dataset homepage: http://example.com
 - STAC extensions used:
   - [proj](https://github.com/stac-extensions/projection/)
 - Extra fields:
-  - `ephemeral:custom`: A custom attribute
+  - `drcog-lulc:custom`: A custom attribute
 
 A short description of the package and its usage.
 
@@ -27,7 +27,7 @@ A short description of the package and its usage.
 Description of the command line functions
 
 ```bash
-$ stac ephemeral create-item source destination
+$ stac drcog-lulc create-item source destination
 ```
 
-Use `stac ephemeral --help` to see all subcommands and options.
+Use `stac drcog-lulc --help` to see all subcommands and options.
