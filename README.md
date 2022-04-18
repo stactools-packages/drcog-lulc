@@ -32,7 +32,7 @@ $ stac drcog-lulc create-item tests/data-files/XXXX.hdf.xml build
 To create a STAC `Catalog` from a list of DRCOG asset hrefs:
 
 ```shell
-$ stac drcog-lulc create-catalog examples/file-list-061.txt examples/XXXX
+$ stac drcog-lulc create-catalog examples/XXXX.txt examples/XXXX
 ```
 
 Use `stac drcog-lulc --help` to see all subcommands and options.
