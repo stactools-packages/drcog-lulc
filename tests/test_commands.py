@@ -5,6 +5,7 @@ import pystac
 from stactools.testing import CliTestCase
 
 from stactools.drcog_lulc.commands import create_drcoglulc_command
+from . import test_data
 
 
 class CommandsTest(CliTestCase):
@@ -30,12 +31,13 @@ class CommandsTest(CliTestCase):
             self.assertEqual(len(jsons), 1)
 
             collection = pystac.read_file(destination)
-            self.assertEqual(collection.id, "my-collection-id")
+            self.assertEqual(collection.id, "drcog-hrlulc")
             # self.assertEqual(item.other_attr...
 
             collection.validate()
 
     def test_create_item(self):
+        href = test_data.get_path("data-files/DRCOG_HRLULC_Pilot_1m_Cropped.tif")
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-item command and validate
 
@@ -44,7 +46,7 @@ class CommandsTest(CliTestCase):
             result = self.run_command([
                 "drcoglulc",
                 "create-item",
-                "/path/to/asset.tif",
+                href,
                 destination,
             ])
             self.assertEqual(result.exit_code,
@@ -55,7 +57,7 @@ class CommandsTest(CliTestCase):
             self.assertEqual(len(jsons), 1)
 
             item = pystac.read_file(destination)
-            self.assertEqual(item.id, "my-item-id")
+            self.assertEqual(item.id, "drcog-hrlulc-pilot")
             # self.assertEqual(item.other_attr...
 
             item.validate()
