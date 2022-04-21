@@ -95,7 +95,7 @@ EXTENT = Extent(SpatialExtent([[-104.867784, -104.641093, 39.667712, 39.549871]]
                 TemporalExtent([[START_TIME,
                                  END_TIME]]))
 SUMMARIES = Summaries({
-    "mission": MISSION
+    "mission": [MISSION]
 })
 ITEM_ASSETS = {
     "data":
