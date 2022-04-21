@@ -33,22 +33,22 @@ ASSET_PROPS: Dict[str, Any] = {
         "classes": [{
               "value": 1,
               "description": "Structures",
-              "color-hint": "ff0000"
+              "color-hint": "FF0000"
             },
             {
               "value": 2,
               "description": "Impervious Surfaces",
-              "color-hint": "b2b2b2"
+              "color-hint": "B2B2B2"
             },
             {
               "value": 3,
               "description": "Water",
-              "color-hint": "00a9e6"
+              "color-hint": "00A9E6"
             },
             {
               "value": 4,
               "description": "Prairie/Grassland/Natural Ground Cover",
-              "color-hint": "c7d79e"
+              "color-hint": "C7D79E"
             },
             {
               "value": 5,
@@ -58,17 +58,17 @@ ASSET_PROPS: Dict[str, Any] = {
             {
               "value": 6,
               "description": "Turf/Irrigated Land",
-              "color-hint": "70a800"
+              "color-hint": "70A800"
             },
             {
               "value": 7,
               "description": "Barren Land",
-              "color-hint": "ffebaf"
+              "color-hint": "FFEBAF"
             },
             {
               "value": 8,
               "description": "Cropland",
-              "color-hint": "ffae42"
+              "color-hint": "FFAE42"
             }]
     }
 }
