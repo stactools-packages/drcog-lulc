@@ -5,6 +5,7 @@ import pystac
 from stactools.testing import CliTestCase
 
 from stactools.drcog_lulc.commands import create_drcoglulc_command
+
 from . import test_data
 
 

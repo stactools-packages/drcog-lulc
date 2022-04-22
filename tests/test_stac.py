@@ -1,6 +1,7 @@
 import unittest
 
 from stactools.drcog_lulc import stac
+
 from . import test_data
 
 

@@ -2,11 +2,11 @@ import logging
 from datetime import datetime, timezone
 from typing import List, Optional
 
-from pystac import Collection, Item, Asset
+import stactools.core.create
+from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
 from pystac.extensions.raster import DataType, RasterExtension
 from stactools.core.io import ReadHrefModifier
-import stactools.core.create
 
 from stactools.drcog_lulc import constants
 
@@ -53,7 +53,7 @@ def create_item(
 def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
     """Creates a STAC Collection for the 2018 DRCOG LULC 1m classification
     product.
-    
+
     Args:
         collection_id (str): Desired ID for the STAC Collection.
     Returns:
