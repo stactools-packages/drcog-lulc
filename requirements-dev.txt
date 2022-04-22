@@ -1,9 +1,10 @@
+black
 codespell
-editorconfig-checker
 flake8
 isort
 jupyter
 mypy
+pre-commit
 pylint
 pytest
 pytest-cov
@@ -14,4 +15,3 @@ sphinxcontrib-fulltoc
 sphinxcontrib-napoleon
 types-click
 types-pytz
-yapf
