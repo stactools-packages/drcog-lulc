@@ -18,6 +18,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         pre-commit run isort --all-files
-        pre-commit run black --all-files
+        pre-commit run black --all-files 
     fi
 fi

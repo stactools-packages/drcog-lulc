@@ -6,7 +6,6 @@ from . import test_data
 
 
 class StacTest(unittest.TestCase):
-
     def test_create_collection(self):
         # Write tests for each for the creation of a STAC Collection
         # Create the STAC Collection...

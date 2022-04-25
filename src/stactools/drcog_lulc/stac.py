@@ -1,11 +1,11 @@
 import logging
 from datetime import datetime, timezone
-from typing import List, Optional
+from typing import Optional
 
 import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
-from pystac.extensions.raster import DataType, RasterExtension
+from pystac.extensions.raster import RasterExtension
 from stactools.core.io import ReadHrefModifier
 
 from stactools.drcog_lulc import constants
@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 
 
 def create_item(
-    asset_href: str,
-    read_href_modifier: Optional[ReadHrefModifier] = None) -> Item:
+    asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
+) -> Item:
     """Create a STAC Item with a single Asset for a 3x3 degree COG tile of the
     DRCOG LULC classification product.
     Optionally creates an additional Asset for an input quality COG if passed an
@@ -28,7 +28,7 @@ def create_item(
         Item: STAC Item object representing the worldcover tile
     """
 
-    item = stactools.core.create.item(asset_href,read_href_modifier=read_href_modifier)
+    item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
 
     item.id = constants.ITEM_ID
     item.common_metadata.start_datetime = constants.START_TIME
@@ -59,15 +59,16 @@ def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collectio
     Returns:
         Collection: The created STAC Collection.
     """
-    collection = Collection(id=collection_id,
-                            title=constants.COLLECTION_TITLE,
-                            description=constants.COLLECTION_DESCRIPTION,
-                            license=constants.LICENSE,
-                            keywords=constants.KEYWORDS,
-                            providers=constants.PROVIDERS,
-                            extent=constants.EXTENT,
-                            summaries=constants.SUMMARIES,
-                            )
+    collection = Collection(
+        id=collection_id,
+        title=constants.COLLECTION_TITLE,
+        description=constants.COLLECTION_DESCRIPTION,
+        license=constants.LICENSE,
+        keywords=constants.KEYWORDS,
+        providers=constants.PROVIDERS,
+        extent=constants.EXTENT,
+        summaries=constants.SUMMARIES,
+    )
 
     item_assets = ItemAssetsExtension.ext(collection, add_if_missing=True)
     item_assets.item_assets = constants.ITEM_ASSETS
@@ -75,8 +76,8 @@ def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collectio
     RasterExtension.add_to(collection)
     collection.stac_extensions.append(constants.CLASSIFICATION_SCHEMA)
 
-    collection.add_links([
-        constants.LICENSE_LINK, constants.REPORT_LINK, constants.DATA_LINK
-    ])
+    collection.add_links(
+        [constants.LICENSE_LINK, constants.REPORT_LINK, constants.DATA_LINK]
+    )
 
     return collection
