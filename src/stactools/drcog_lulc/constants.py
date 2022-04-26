@@ -100,7 +100,7 @@ ITEM_ASSETS = {
 }
 REPORT_LINK = Link(
     rel="describedby",
-    target="https://gis.drcog.org//rdc/supplemental/lulc_pilot_report.zip",  # noqa
+    target="https://gis.drcog.org/rdc/supplemental/lulc_pilot_report.zip",
     title="Supplemental Information",
 )
 DATA_LINK = Link(
