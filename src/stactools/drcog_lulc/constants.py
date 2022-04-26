@@ -15,9 +15,6 @@ from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_ID = "drcog-hrlulc-pilot"
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution for year 2018"
-# Per the discussion in https://github.com/radiantearth/stac-spec/issues/216,
-# the recommendation for multi-platform datasets is to include all platforms
-# and use a string separator. The same logic is applied to the mission.
 MISSION = "DRCOG LULC"
 EPSG = "26913"
 START_TIME = datetime.datetime.fromisoformat("2018-01-01T00:00:00+00:00")
@@ -58,9 +55,7 @@ ASSET_PROPS: Dict[str, Any] = {
 
 COLLECTION_ID = "drcog-hrlulc"
 COLLECTION_TITLE = "DRCOG LULC 2018"
-COLLECTION_DESCRIPTION = (
-    "1,000 square miles were classified by Land Use Land Cover at 1-meter resolution"
-)
+COLLECTION_DESCRIPTION = "In 2018, DRCOG partnered with the Babbitt Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center to create a pilot land use land cover data set covering 1000 square miles of the region. Input data sets included USDAs 1-meter National Agriculture Imagery Program (NAIP) 2017 aerial imagery and leaf-off aerial orthoimagery captured in March 2018 as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution).Where available, high resolution planimetric data sets from DRCOG's Regional Planimetric Project were incorporated, reflecting ground conditions in 2016: building footprints, driveways and sidewalks, edge of pavement (including most roads), and parking lots."  # noqa
 LICENSE = "proprietary"
 LICENSE_LINK = Link(
     rel="license", target="https://drcog.org/legal-terms", title="DRCOG Legal Terms"
@@ -68,7 +63,7 @@ LICENSE_LINK = Link(
 KEYWORDS = ["Land Cover", "Land Use", "NAIP", "USDA"]
 PROVIDERS = [
     Provider(
-        name="DRCOG",
+        name="Denver Regional Council of Governments",
         roles=[
             ProviderRole.LICENSOR,
             ProviderRole.PRODUCER,
