@@ -4,14 +4,14 @@ from tempfile import TemporaryDirectory
 import pystac
 from stactools.testing import CliTestCase
 
-from stactools.drcog_lulc.commands import create_drcoglulc_command
+from stactools.drcog_lulc.commands import create_drcog_lulc_command
 
 from . import test_data
 
 
 class CommandsTest(CliTestCase):
     def create_subcommand_functions(self):
-        return [create_drcoglulc_command]
+        return [create_drcog_lulc_command]
 
     def test_create_collection(self):
         with TemporaryDirectory() as tmp_dir:
@@ -20,7 +20,7 @@ class CommandsTest(CliTestCase):
             # Example:
             destination = os.path.join(tmp_dir, "collection.json")
 
-            result = self.run_command(["drcoglulc", "create-collection", destination])
+            result = self.run_command(["drcog_lulc", "create-collection", destination])
 
             self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
 
@@ -42,7 +42,7 @@ class CommandsTest(CliTestCase):
             destination = os.path.join(tmp_dir, "item.json")
             result = self.run_command(
                 [
-                    "drcoglulc",
+                    "drcog_lulc",
                     "create-item",
                     href,
                     destination,

@@ -7,17 +7,17 @@ from stactools.drcog_lulc import stac
 logger = logging.getLogger(__name__)
 
 
-def create_drcoglulc_command(cli):
+def create_drcog_lulc_command(cli):
     """Creates the stactools-drcog-lulc command line utility."""
 
     @cli.group(
-        "drcoglulc",
+        "drcog_lulc",
         short_help=("Commands for working with stactools-drcog-lulc"),
     )
-    def drcoglulc():
+    def drcog_lulc():
         pass
 
-    @drcoglulc.command(
+    @drcog_lulc.command(
         "create-collection",
         short_help="Creates a STAC collection",
     )
@@ -36,7 +36,7 @@ def create_drcoglulc_command(cli):
 
         return None
 
-    @drcoglulc.command("create-item", short_help="Create a STAC item")
+    @drcog_lulc.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
     @click.argument("destination")
     def create_item_command(source: str, destination: str):
@@ -52,4 +52,4 @@ def create_drcoglulc_command(cli):
 
         return None
 
-    return drcoglulc
+    return drcog_lulc
