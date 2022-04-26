@@ -19,7 +19,7 @@ from typing import List
 # -- Project information -----------------------------------------------------
 
 project = "drcog-lulc"
-copyright = "2022, Paola Holleway"
+copyright = "Microsoft"
 author = "Paola Holleway"
 
 
