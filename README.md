@@ -12,6 +12,8 @@
   - [raster](https://github.com/stac-extensions/raster)
   - [scientific](https://github.com/stac-extensions/scientific)
 
+DRCOG provides the original data in a geodatabase. GDAL, a translator library for raster and vector geospatial data formats, was utilized to generate a cloud optimized GeoTIFF. 
+
 This repository will assist you in the generation of STAC files for 2018 Denver Regional Council of Goverments (DRCOG) high resolution Land Use Land Cover (LULC) dataset.
 
 ## Examples
