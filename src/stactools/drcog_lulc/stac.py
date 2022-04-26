@@ -1,112 +1,83 @@
 import logging
 from datetime import datetime, timezone
+from typing import Optional
 
-from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
-                    Provider, ProviderRole, SpatialExtent, TemporalExtent)
-from pystac.extensions.projection import ProjectionExtension
+import stactools.core.create
+from pystac import Asset, Collection, Item
+from pystac.extensions.item_assets import ItemAssetsExtension
+from pystac.extensions.raster import RasterExtension
+from stactools.core.io import ReadHrefModifier
+
+from stactools.drcog_lulc import constants
 
 logger = logging.getLogger(__name__)
 
 
-def create_collection() -> Collection:
-    """Create a STAC Collection
-
-    This function includes logic to extract all relevant metadata from
-    an asset describing the STAC collection and/or metadata coded into an
-    accompanying constants.py file.
-
-    See `Collection<https://pystac.readthedocs.io/en/latest/api.html#collection>`_.
-
+def create_item(
+    asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
+) -> Item:
+    """Create a STAC Item with a single Asset for a 3x3 degree COG tile of the
+    DRCOG LULC classification product.
+    Optionally creates an additional Asset for an input quality COG if passed an
+    href.
+    Args:
+        asset_href (str): An href to a COG containing a tile of classication data.
+        read_href_modifier (Callable[[str], str]): An optional function to
+            modify the MTL and USGS STAC hrefs (e.g. to add a token to a url).
     Returns:
-        Collection: STAC Collection object
+        Item: STAC Item object representing the landcover GeoTIFF tile
     """
-    providers = [
-        Provider(
-            name="The OS Community",
-            roles=[
-                ProviderRole.PRODUCER, ProviderRole.PROCESSOR,
-                ProviderRole.HOST
-            ],
-            url="https://github.com/stac-utils/stactools",
-        )
-    ]
 
-    # Time must be in UTC
-    demo_time = datetime.now(tz=timezone.utc)
+    item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
 
-    extent = Extent(
-        SpatialExtent([[-180., 90., 180., -90.]]),
-        TemporalExtent([demo_time, None]),
+    item.id = constants.ITEM_ID
+    item.common_metadata.start_datetime = constants.START_TIME
+    item.common_metadata.end_datetime = constants.END_TIME
+    item.datetime = None
+    item.common_metadata.description = constants.ITEM_DESCRIPTION
+    item.common_metadata.created = datetime.now(tz=timezone.utc)
+    item.common_metadata.mission = constants.MISSION
+
+    asset_dict = constants.ASSET_PROPS["data"].copy()
+    asset_dict["href"] = asset_href
+    item.add_asset("data", Asset.from_dict(asset_dict))
+
+    RasterExtension.add_to(item)
+    item.stac_extensions.append(constants.CLASSIFICATION_SCHEMA)
+
+    item.validate()
+
+    return item
+
+
+def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
+    """Creates a STAC Collection for the 2018 DRCOG LULC 1m classification
+    product.
+
+    Args:
+        collection_id (str): Desired ID for the STAC Collection.
+    Returns:
+        Collection: The created STAC Collection.
+    """
+    collection = Collection(
+        id=collection_id,
+        title=constants.COLLECTION_TITLE,
+        description=constants.COLLECTION_DESCRIPTION,
+        license=constants.LICENSE,
+        keywords=constants.KEYWORDS,
+        providers=constants.PROVIDERS,
+        extent=constants.EXTENT,
+        summaries=constants.SUMMARIES,
     )
 
-    collection = Collection(
-        id="my-collection-id",
-        title="A dummy STAC Collection",
-        description="Used for demonstration purposes",
-        license="CC-0",
-        providers=providers,
-        extent=extent,
-        catalog_type=CatalogType.RELATIVE_PUBLISHED,
+    item_assets = ItemAssetsExtension.ext(collection, add_if_missing=True)
+    item_assets.item_assets = constants.ITEM_ASSETS
+
+    RasterExtension.add_to(collection)
+    collection.stac_extensions.append(constants.CLASSIFICATION_SCHEMA)
+
+    collection.add_links(
+        [constants.LICENSE_LINK, constants.REPORT_LINK, constants.DATA_LINK]
     )
 
     return collection
-
-
-def create_item(asset_href: str) -> Item:
-    """Create a STAC Item
-
-    This function should include logic to extract all relevant metadata from an
-    asset, metadata asset, and/or a constants.py file.
-
-    See `Item<https://pystac.readthedocs.io/en/latest/api.html#item>`_.
-
-    Args:
-        asset_href (str): The HREF pointing to an asset associated with the item
-
-    Returns:
-        Item: STAC Item object
-    """
-
-    properties = {
-        "title": "A dummy STAC Item",
-        "description": "Used for demonstration purposes",
-    }
-
-    demo_geom = {
-        "type":
-        "Polygon",
-        "coordinates": [[[-180, -90], [180, -90], [180, 90], [-180, 90],
-                         [-180, -90]]],
-    }
-
-    # Time must be in UTC
-    demo_time = datetime.now(tz=timezone.utc)
-
-    item = Item(
-        id="my-item-id",
-        properties=properties,
-        geometry=demo_geom,
-        bbox=[-180, 90, 180, -90],
-        datetime=demo_time,
-        stac_extensions=[],
-    )
-
-    # It is a good idea to include proj attributes to optimize for libs like stac-vrt
-    proj_attrs = ProjectionExtension.ext(item, add_if_missing=True)
-    proj_attrs.epsg = 4326
-    proj_attrs.bbox = [-180, 90, 180, -90]
-    proj_attrs.shape = [1, 1]  # Raster shape
-    proj_attrs.transform = [-180, 360, 0, 90, 0, 180]  # Raster GeoTransform
-
-    # Add an asset to the item (COG for example)
-    item.add_asset(
-        "image",
-        Asset(
-            href=asset_href,
-            media_type=MediaType.COG,
-            roles=["data"],
-            title="A dummy STAC Item COG",
-        ),
-    )
-
-    return item

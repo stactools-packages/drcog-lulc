@@ -14,4 +14,10 @@ RUN pip install -r requirements-dev.txt \
     && rm -r /opt/conda/lib/python$PYTHON_VERSION/site-packages/$DOCKER_NAMESPACE_PACKAGE_DIR
 
 COPY . ./
+# We need gcc and build-essential to build rasterio wheels.
+# Not sure why these don't get picked up from the stactools image
+RUN apt-get update \
+    && apt-get install -y gcc build-essential \
+    && rm -rf /var/lib/apt/lists/*
+RUN git init && pre-commit install && pre-commit run --all-files
 RUN pip install -e .
