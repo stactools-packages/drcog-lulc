@@ -13,7 +13,7 @@ from pystac import (
 )
 from pystac.extensions.item_assets import AssetDefinition
 
-ITEM_ID = "drcog-hrlulc-pilot"
+ITEM_ID = "drcog-lulc-hr-pilot"
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution for year 2018"
 MISSION = "DRCOG LULC"
 EPSG = "26913"
