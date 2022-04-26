@@ -25,7 +25,7 @@ def create_item(
         read_href_modifier (Callable[[str], str]): An optional function to
             modify the MTL and USGS STAC hrefs (e.g. to add a token to a url).
     Returns:
-        Item: STAC Item object representing the worldcover tile
+        Item: STAC Item object representing the landcover GeoTIFF tile
     """
 
     item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
