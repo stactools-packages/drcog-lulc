@@ -20,7 +20,7 @@ class CommandsTest(CliTestCase):
             # Example:
             destination = os.path.join(tmp_dir, "collection.json")
 
-            result = self.run_command(["drcog_lulc", "create-collection", destination])
+            result = self.run_command(["drcog-lulc", "create-collection", destination])
 
             self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
 
@@ -42,7 +42,7 @@ class CommandsTest(CliTestCase):
             destination = os.path.join(tmp_dir, "item.json")
             result = self.run_command(
                 [
-                    "drcog_lulc",
+                    "drcog-lulc",
                     "create-item",
                     href,
                     destination,
