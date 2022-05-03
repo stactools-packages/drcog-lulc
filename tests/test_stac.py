@@ -13,14 +13,14 @@ class StacTest(unittest.TestCase):
         collection.set_self_href("")
 
         # Check that it has some required attributesƒ
-        self.assertEqual(collection.id, "drcog-hrlulc")
+        self.assertEqual(collection.id, "drcog-lulc")
         # self.assertEqual(collection.other_attr...
 
         # Validate
         collection.validate()
 
     def test_create_item(self):
-        href = test_data.get_path("data-files/DRCOG_HRLULC_Pilot_1m_Cropped.tif")
+        href = test_data.get_path("data-files/drcog_lulc_hr_pilot_1m.tif")
         item = stac.create_item(href)
         self.assertEqual(item.id, "drcog-lulc-hr-pilot")
         item.validate()

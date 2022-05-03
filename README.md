@@ -1,7 +1,7 @@
 # stactools-drcog-lulc
 
 - Name: drcog-lulc
-- Package: `stactools.drcog-lulc`
+- Package: `stactools.drcog_lulc`
 - PyPI: https://pypi.org/project/stactools-drcog-lulc/
 - Owner: @pholleway
 - Dataset homepage: https://drcog.org/services-and-resources/data-maps-and-modeling/regional-land-use-land-cover-project
