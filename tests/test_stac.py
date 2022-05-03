@@ -13,7 +13,7 @@ class StacTest(unittest.TestCase):
         collection.set_self_href("")
 
         # Check that it has some required attributesƒ
-        self.assertEqual(collection.id, "drcog-hrlulc")
+        self.assertEqual(collection.id, "drcog-lulc")
         # self.assertEqual(collection.other_attr...
 
         # Validate

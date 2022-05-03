@@ -28,7 +28,7 @@ class CommandsTest(CliTestCase):
             self.assertEqual(len(jsons), 1)
 
             collection = pystac.read_file(destination)
-            self.assertEqual(collection.id, "drcog-hrlulc")
+            self.assertEqual(collection.id, "drcog-lulc")
             # self.assertEqual(item.other_attr...
 
             collection.validate()
