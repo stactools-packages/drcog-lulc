@@ -53,7 +53,7 @@ ASSET_PROPS: Dict[str, Any] = {
     }
 }
 
-COLLECTION_ID = "drcog-hrlulc"
+COLLECTION_ID = "drcog-lulc"
 COLLECTION_TITLE = "DRCOG LULC 2018"
 COLLECTION_DESCRIPTION = "In 2018, DRCOG partnered with the Babbitt Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center to create a pilot land use land cover data set covering 1000 square miles of the region. Input data sets included USDAs 1-meter National Agriculture Imagery Program (NAIP) 2017 aerial imagery and leaf-off aerial orthoimagery captured in March 2018 as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution).Where available, high resolution planimetric data sets from DRCOG's Regional Planimetric Project were incorporated, reflecting ground conditions in 2016: building footprints, driveways and sidewalks, edge of pavement (including most roads), and parking lots."  # noqa
 LICENSE = "proprietary"

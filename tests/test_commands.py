@@ -34,7 +34,7 @@ class CommandsTest(CliTestCase):
             collection.validate()
 
     def test_create_item(self):
-        href = test_data.get_path("data-files/DRCOG_HRLULC_Pilot_1m_Cropped.tif")
+        href = test_data.get_path("data-files/drcog_lulc_hr_pilot_1m.tif")
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-item command and validate
 
