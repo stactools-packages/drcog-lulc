@@ -11,7 +11,7 @@ def create_drcog_lulc_command(cli):
     """Creates the stactools-drcog-lulc command line utility."""
 
     @cli.group(
-        "drcog_lulc",
+        "drcog-lulc",
         short_help=("Commands for working with stactools-drcog-lulc"),
     )
     def drcog_lulc():
