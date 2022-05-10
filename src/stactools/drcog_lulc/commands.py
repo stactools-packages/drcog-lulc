@@ -22,10 +22,16 @@ def create_drcog_lulc_command(cli):
         short_help="Creates a STAC collection",
     )
     @click.argument("destination")
-    def create_collection_command(destination: str):
+    @click.option("--asset_href")
+    def create_collection_command(
+        destination: str,
+        asset_href: str,
+    ):
         """Creates a STAC Collection
 
+        \b
         Args:
+            asset_href (str): Href of asset for the Collection JSON
             destination (str): An HREF for the Collection JSON
         """
         collection = stac.create_collection()
