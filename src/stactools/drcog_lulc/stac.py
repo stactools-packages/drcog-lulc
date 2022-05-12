@@ -5,6 +5,7 @@ from typing import Optional
 import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
+from pystac.extensions.projection import ItemProjectionExtension
 from pystac.extensions.raster import RasterExtension
 from stactools.core.io import ReadHrefModifier
 
@@ -16,16 +17,15 @@ logger = logging.getLogger(__name__)
 def create_item(
     asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
 ) -> Item:
-    """Create a STAC Item with a single Asset for a 3x3 degree COG tile of the
+    """Create a STAC Item with a single Asset for a COG tile of the
     DRCOG LULC classification product.
-    Optionally creates an additional Asset for an input quality COG if passed an
-    href.
+
     Args:
         asset_href (str): An href to a COG containing a tile of classication data.
         read_href_modifier (Callable[[str], str]): An optional function to
-            modify the MTL and USGS STAC hrefs (e.g. to add a token to a url).
+            modify hrefs (e.g. to add a token to a url).
     Returns:
-        Item: STAC Item object representing the landcover GeoTIFF tile
+        Item: STAC Item object representing the landcover tile
     """
 
     item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
@@ -37,6 +37,9 @@ def create_item(
     item.common_metadata.description = constants.ITEM_DESCRIPTION
     item.common_metadata.created = datetime.now(tz=timezone.utc)
     item.common_metadata.mission = constants.MISSION
+
+    item_proj = ItemProjectionExtension.ext(item, add_if_missing=True)
+    item_proj.epsg = constants.EPSG
 
     asset_dict = constants.ASSET_PROPS["data"].copy()
     asset_dict["href"] = asset_href
@@ -51,7 +54,7 @@ def create_item(
 
 
 def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
-    """Creates a STAC Collection for the 2018 DRCOG LULC 1m classification
+    """Creates a STAC Collection for the 2018 DRCOG LULC classification
     product.
 
     Args:

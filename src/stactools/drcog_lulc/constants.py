@@ -16,7 +16,7 @@ from pystac.extensions.item_assets import AssetDefinition
 ITEM_ID = "drcog-lulc-hr-pilot"
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution for year 2018"
 MISSION = "DRCOG LULC"
-EPSG = "26913"
+EPSG = 26913
 START_TIME = datetime.datetime.fromisoformat("2018-01-01T00:00:00+00:00")
 END_TIME = datetime.datetime.fromisoformat("2018-12-31T23:59:59+00:00")
 CLASSIFICATION_SCHEMA = (
@@ -37,18 +37,18 @@ ASSET_PROPS: Dict[str, Any] = {
             }
         ],
         "classes": [
-            {"value": 1, "description": "Structures", "color-hint": "FF0000"},
-            {"value": 2, "description": "Impervious Surfaces", "color-hint": "B2B2B2"},
-            {"value": 3, "description": "Water", "color-hint": "00A9E6"},
+            {"value": 1, "description": "Structures", "color_hint": "FF0000"},
+            {"value": 2, "description": "Impervious Surfaces", "color_hint": "B2B2B2"},
+            {"value": 3, "description": "Water", "color_hint": "00A9E6"},
             {
                 "value": 4,
                 "description": "Prairie/Grassland/Natural Ground Cover",
-                "color-hint": "C7D79E",
+                "color_hint": "C7D79E",
             },
-            {"value": 5, "description": "Tree Canopy", "color-hint": "267300"},
-            {"value": 6, "description": "Turf/Irrigated Land", "color-hint": "70A800"},
-            {"value": 7, "description": "Barren Land", "color-hint": "FFEBAF"},
-            {"value": 8, "description": "Cropland", "color-hint": "FFAE42"},
+            {"value": 5, "description": "Tree Canopy", "color_hint": "267300"},
+            {"value": 6, "description": "Turf/Irrigated Land", "color_hint": "70A800"},
+            {"value": 7, "description": "Barren Land", "color_hint": "FFEBAF"},
+            {"value": 8, "description": "Cropland", "color_hint": "FFAE42"},
         ],
     }
 }
