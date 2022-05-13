@@ -28,7 +28,7 @@ ASSET_PROPS: Dict[str, Any] = {
         "title": "DRCOG LULC",
         "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",  # noqa
         "roles": ["data"],
-        "bands": [
+        "raster:bands": [
             {
                 "description": "Classification values",
                 "sampling": "area",
@@ -36,7 +36,7 @@ ASSET_PROPS: Dict[str, Any] = {
                 "spatial_resolution": 1,
             }
         ],
-        "classes": [
+        "classification:classes": [
             {"value": 1, "description": "Structures", "color_hint": "FF0000"},
             {"value": 2, "description": "Impervious Surfaces", "color_hint": "B2B2B2"},
             {"value": 3, "description": "Water", "color_hint": "00A9E6"},

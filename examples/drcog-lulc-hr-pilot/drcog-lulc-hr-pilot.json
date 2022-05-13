@@ -75,7 +75,7 @@
       "href": "../../tests/data-files/drcog_lulc_hr_pilot_1m.tif",
       "title": "DRCOG LULC",
       "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",
-      "bands": [
+      "raster:bands": [
         {
           "description": "Classification values",
           "sampling": "area",
@@ -83,7 +83,7 @@
           "spatial_resolution": 1
         }
       ],
-      "classes": [
+      "classification:classes": [
         {
           "value": 1,
           "description": "Structures",
