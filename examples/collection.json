@@ -6,7 +6,7 @@
   "links": [
     {
       "rel": "root",
-      "href": "/Users/pholleway/Code/drcog-lulc/examples",
+      "href": "./collection.json",
       "type": "application/json",
       "title": "DRCOG LULC 2018"
     },
@@ -26,8 +26,8 @@
       "title": "DRCOG_Final_Classification"
     },
     {
-      "rel": "self",
-      "href": "/Users/pholleway/Code/drcog-lulc/examples",
+      "rel": "item",
+      "href": "./drcog-lulc-hr-pilot/drcog-lulc-hr-pilot.json",
       "type": "application/json"
     }
   ],
@@ -53,42 +53,42 @@
         {
           "value": 1,
           "description": "Structures",
-          "color-hint": "FF0000"
+          "color_hint": "FF0000"
         },
         {
           "value": 2,
           "description": "Impervious Surfaces",
-          "color-hint": "B2B2B2"
+          "color_hint": "B2B2B2"
         },
         {
           "value": 3,
           "description": "Water",
-          "color-hint": "00A9E6"
+          "color_hint": "00A9E6"
         },
         {
           "value": 4,
           "description": "Prairie/Grassland/Natural Ground Cover",
-          "color-hint": "C7D79E"
+          "color_hint": "C7D79E"
         },
         {
           "value": 5,
           "description": "Tree Canopy",
-          "color-hint": "267300"
+          "color_hint": "267300"
         },
         {
           "value": 6,
           "description": "Turf/Irrigated Land",
-          "color-hint": "70A800"
+          "color_hint": "70A800"
         },
         {
           "value": 7,
           "description": "Barren Land",
-          "color-hint": "FFEBAF"
+          "color_hint": "FFEBAF"
         },
         {
           "value": 8,
           "description": "Cropland",
-          "color-hint": "FFAE42"
+          "color_hint": "FFAE42"
         }
       ],
       "roles": [
@@ -102,9 +102,9 @@
       "bbox": [
         [
           -104.867784,
+          39.549871,
           -104.641093,
-          39.667712,
-          39.549871
+          39.667712
         ]
       ]
     },
