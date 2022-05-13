@@ -87,8 +87,8 @@ ITEM_ASSETS = {
             "type": MediaType.COG,
             "title": ASSET_PROPS["data"]["title"],
             "description": ASSET_PROPS["data"]["description"],
-            "raster:bands": ASSET_PROPS["data"]["bands"],
-            "classification:classes": ASSET_PROPS["data"]["classes"],
+            "raster:bands": ASSET_PROPS["data"]["raster:bands"],
+            "classification:classes": ASSET_PROPS["data"]["classification:classes"],
             "roles": ASSET_PROPS["data"]["roles"],
         }
     )
