@@ -14,22 +14,17 @@ class CommandsTest(CliTestCase):
         return [create_drcog_lulc_command]
 
     def test_create_collection(self):
-        with TemporaryDirectory() as tmp_dir:
-            # Run your custom create-collection command and validate
-
-            # Example:
-            destination = os.path.join(tmp_dir, "collection.json")
-
-            result = self.run_command(["drcog-lulc", "create-collection", destination])
-
+        with TemporaryDirectory() as temporary_directory:
+            result = self.run_command(
+                ["drcog-lulc", "create-collection", temporary_directory]
+            )
             self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
 
-            jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
+            jsons = [p for p in os.listdir(temporary_directory) if p.endswith(".json")]
             self.assertEqual(len(jsons), 1)
 
-            collection = pystac.read_file(destination)
+            collection = pystac.read_file(os.path.join(temporary_directory, jsons[0]))
             self.assertEqual(collection.id, "drcog-lulc")
-            # self.assertEqual(item.other_attr...
 
             collection.validate()
 

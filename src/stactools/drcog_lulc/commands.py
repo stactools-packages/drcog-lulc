@@ -1,6 +1,9 @@
 import logging
+from typing import Optional
 
 import click
+import pystac.utils
+from pystac import CatalogType
 
 from stactools.drcog_lulc import stac
 
@@ -22,23 +25,39 @@ def create_drcog_lulc_command(cli):
         short_help="Creates a STAC collection",
     )
     @click.argument("destination")
-    @click.option("--asset_href")
+    @click.option(
+        "--asset-href",
+        help="Optional asset to use to create an item, which will be included in the collection",
+    )
+    @click.option(
+        "--validate/--no-validate",
+        help="Validate the collection before saving",
+        default=True,
+    )
     def create_collection_command(
         destination: str,
-        asset_href: str,
+        asset_href: Optional[str],
+        validate: bool,
     ):
         """Creates a STAC Collection
 
         \b
         Args:
-            asset_href (str): Href of asset for the Collection JSON
-            destination (str): An HREF for the Collection JSON
+            destination (str): The destination directory
+            asset_href (optional, str): Href of asset to create an item, which
+                will be added to the collection
         """
         collection = stac.create_collection()
-
-        collection.set_self_href(destination)
-
-        collection.save_object()
+        if asset_href:
+            item = stac.create_item(
+                asset_href=pystac.utils.make_absolute_href(asset_href)
+            )
+            collection.add_item(item)
+        collection.normalize_hrefs(destination)
+        if validate:
+            collection.validate_all()
+        collection.make_all_asset_hrefs_relative()
+        collection.save(catalog_type=CatalogType.SELF_CONTAINED)
 
         return None
 

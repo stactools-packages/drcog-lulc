@@ -6,7 +6,7 @@
   "links": [
     {
       "rel": "root",
-      "href": "/Users/pholleway/Code/drcog-lulc/examples/file-list.txt",
+      "href": "./collection.json",
       "type": "application/json",
       "title": "DRCOG LULC 2018"
     },
@@ -26,8 +26,8 @@
       "title": "DRCOG_Final_Classification"
     },
     {
-      "rel": "self",
-      "href": "/Users/pholleway/Code/drcog-lulc/examples/file-list.txt",
+      "rel": "item",
+      "href": "./drcog-lulc-hr-pilot/drcog-lulc-hr-pilot.json",
       "type": "application/json"
     }
   ],
