@@ -19,7 +19,7 @@
     "start_datetime": "2018-01-01T00:00:00Z",
     "end_datetime": "2018-12-31T23:59:59Z",
     "description": "DRCOG LULC at 1m resolution for year 2018",
-    "created": "2022-05-13T17:48:57.113376Z",
+    "created": "2022-05-13T17:53:35.889436Z",
     "mission": "DRCOG LULC",
     "datetime": null
   },
@@ -73,6 +73,7 @@
   "assets": {
     "data": {
       "href": "../../tests/data-files/drcog_lulc_hr_pilot_1m.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "DRCOG LULC",
       "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",
       "raster:bands": [

@@ -27,6 +27,7 @@ ASSET_PROPS: Dict[str, Any] = {
     "data": {
         "title": "DRCOG LULC",
         "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",  # noqa
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized",
         "roles": ["data"],
         "raster:bands": [
             {
