@@ -77,7 +77,7 @@ PROVIDERS = [
     )
 ]
 EXTENT = Extent(
-    SpatialExtent([[-104.867784, -104.641093, 39.667712, 39.549871]]),
+    SpatialExtent([[-104.867784, 39.549871, -104.641093, 39.667712]]),
     TemporalExtent([[START_TIME, END_TIME]]),
 )
 SUMMARIES = Summaries({"mission": [MISSION]})
