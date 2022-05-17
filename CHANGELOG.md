@@ -6,20 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Added
+## [0.1.0] - 2022-05-17
 
-- Nothing.
+Initial release.
 
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
-[Unreleased]: <https://github.com/stactools-packages/drcog-lulc/tree/main/>
+[Unreleased]: <http://github.com/stactools-packages/drcog-lulc/compare/v0.1.0..main>
+[0.1.0]: <https://github.com/stactools-packages/drcog-lulc/releases/tag/v0.1.0>
