@@ -13,8 +13,8 @@ from pystac import (
 )
 from pystac.extensions.item_assets import AssetDefinition
 
-ITEM_ID = "drcog-lulc-hr-pilot"
-ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution for year 2018"
+ITEM_ID = "drcog-lulc-2018"
+ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
 MISSION = "DRCOG LULC"
 EPSG = 26913
 START_TIME = datetime.datetime.fromisoformat("2018-01-01T00:00:00+00:00")
@@ -55,8 +55,8 @@ ASSET_PROPS: Dict[str, Any] = {
 }
 
 COLLECTION_ID = "drcog-lulc"
-COLLECTION_TITLE = "DRCOG LULC 2018"
-COLLECTION_DESCRIPTION = "In 2018, DRCOG partnered with the Babbitt Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center to create a pilot land use land cover data set covering 1000 square miles of the region. Input data sets included USDAs 1-meter National Agriculture Imagery Program (NAIP) 2017 aerial imagery and leaf-off aerial orthoimagery captured in March 2018 as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution).Where available, high resolution planimetric data sets from DRCOG's Regional Planimetric Project were incorporated, reflecting ground conditions in 2016: building footprints, driveways and sidewalks, edge of pavement (including most roads), and parking lots."  # noqa
+COLLECTION_TITLE = "DRCOG LULC"
+COLLECTION_DESCRIPTION = "The Denver Regional Council of Governments (DRCOG) Land Use/Land Cover (LULC) datasets are developed in partnership with Babbit Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center (CIC). DRCOG LULC includes 2018 data covering 1,000 square miles and 2020 data covering 6,000 square miles of the Denver, Colorado region at 1 meter resolution. The data is based on USDA's 1 meter National Agricultural Imagery Program (NAIP) aerial imagery and leaf-off aerial ortho-imagery captured as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution)."  # noqa
 LICENSE = "proprietary"
 LICENSE_LINK = Link(
     rel="license", target="https://drcog.org/legal-terms", title="DRCOG Legal Terms"

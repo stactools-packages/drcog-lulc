@@ -49,7 +49,7 @@ class CommandsTest(CliTestCase):
             self.assertEqual(len(jsons), 1)
 
             item = pystac.read_file(destination)
-            self.assertEqual(item.id, "drcog-lulc-hr-pilot")
+            self.assertEqual(item.id, "drcog-lulc-2018")
             # self.assertEqual(item.other_attr...
 
             item.validate()
