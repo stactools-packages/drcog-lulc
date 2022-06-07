@@ -15,10 +15,10 @@ from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_ID = "drcog-lulc-2018"
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
-MISSION = "DRCOG LULC"
-EPSG = 26913
 START_TIME = datetime.datetime.fromisoformat("2018-01-01T00:00:00+00:00")
 END_TIME = datetime.datetime.fromisoformat("2018-12-31T23:59:59+00:00")
+MISSION = "DRCOG LULC"
+EPSG = 26913
 CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.0.0/schema.json"
 )
