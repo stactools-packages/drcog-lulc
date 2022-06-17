@@ -14,16 +14,14 @@ from pystac import (
 from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_ID = {
-    "2018": {
+    2018: {
         "drcog-lulc-2018"
         },
-    "2019": {
+    2020: {
         "drcog-lulc-2020"
     }
 }
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
-START_TIME = datetime.datetime.fromisoformat("2018-01-01T00:00:00+00:00")
-END_TIME = datetime.datetime.fromisoformat("2020-12-31T23:59:59+00:00")
 MISSION = "DRCOG LULC"
 EPSG = 26913
 CLASSIFICATION_SCHEMA = (
