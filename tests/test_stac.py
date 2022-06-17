@@ -24,3 +24,10 @@ class StacTest(unittest.TestCase):
         item = stac.create_item(href)
         self.assertEqual(item.id, "drcog-lulc-2018")
         item.validate()
+
+    def test_create_item(self):
+        href = test_data.get_path("data-files/drcog_lulc_2020.tif")
+        item = stac.create_item(href)
+        self.assertEqual(item.id, "drcog-lulc-2020")
+        item.validate()
+
