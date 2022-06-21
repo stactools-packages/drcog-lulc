@@ -24,7 +24,7 @@ ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
 MISSION = "DRCOG LULC"
 EPSG = 26913
 CLASSIFICATION_SCHEMA = (
-    "https://stac-extensions.github.io/classification/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
 )
 
 ASSET_PROPS: Dict[str, Any] = {
