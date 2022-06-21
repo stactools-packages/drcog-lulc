@@ -81,10 +81,7 @@ PROVIDERS = [
         ),
     )
 ]
-EXTENT = Extent(
-    SpatialExtent([[-105.939624, 39.104426, -103.668018, 40.321386]]),
-    TemporalExtent([[START_TIME, END_TIME]]),
-)
+EXTENT = SpatialExtent([[-105.939624, 39.104426, -103.668018, 40.321386]])
 SUMMARIES = Summaries({"mission": [MISSION]})
 ITEM_ASSETS = {
     "data": AssetDefinition(

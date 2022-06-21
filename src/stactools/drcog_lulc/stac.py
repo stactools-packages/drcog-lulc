@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 import stactools.core.create
-from pystac import Asset, Collection, Item
+from pystac import Asset, Extent, Collection, Item, SpatialExtent, TemporalExtent
 from pystac.extensions.item_assets import ItemAssetsExtension
 from pystac.extensions.projection import ItemProjectionExtension
 from pystac.extensions.raster import RasterExtension
@@ -69,8 +69,13 @@ def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collectio
         license=constants.LICENSE,
         keywords=constants.KEYWORDS,
         providers=constants.PROVIDERS,
-        extent=constants.EXTENT,
+        extent=extent,
         summaries=constants.SUMMARIES,
+    )
+
+    extent = Extent(
+        SpatialExtent([constants.EXTENT]),
+        TemporalExtent([common_metadata.start_datetime, common_metadata.end_datetime]),
     )
 
     item_assets = ItemAssetsExtension.ext(collection, add_if_missing=True)
