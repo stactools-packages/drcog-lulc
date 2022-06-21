@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Any, Dict
 
 from pystac import (
@@ -12,14 +13,7 @@ from pystac import (
 )
 from pystac.extensions.item_assets import AssetDefinition
 
-ITEM_ID = {
-    2018: {
-        "drcog-lulc-2018"
-        },
-    2020: {
-        "drcog-lulc-2020"
-    }
-}
+ITEM_ID = {2018: "drcog-lulc-2018", 2020: "drcog-lulc-2020"}
 ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
 MISSION = "DRCOG LULC"
 EPSG = 26913
@@ -81,7 +75,10 @@ PROVIDERS = [
         ),
     )
 ]
-EXTENT = SpatialExtent([[-105.939624, 39.104426, -103.668018, 40.321386]])
+EXTENT = Extent(
+    SpatialExtent([[-104.867784, 39.549871, -104.641093, 39.667712]]),
+    TemporalExtent([[datetime(2018, 1, 1), datetime(2020, 12, 31, 23, 59, 59)]]),
+)
 SUMMARIES = Summaries({"mission": [MISSION]})
 ITEM_ASSETS = {
     "data": AssetDefinition(

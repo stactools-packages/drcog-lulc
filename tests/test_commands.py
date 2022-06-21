@@ -40,6 +40,7 @@ class CommandsTest(CliTestCase):
                     "drcog-lulc",
                     "create-item",
                     asset_href,
+                    "2018",
                     destination,
                 ]
             )
