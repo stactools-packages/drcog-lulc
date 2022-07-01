@@ -29,7 +29,7 @@ class CommandsTest(CliTestCase):
             collection.validate()
 
     def test_create_item(self):
-        asset_href = test_data.get_path("data-files/drcog_lulc_hr_pilot_1m.tif")
+        asset_href = test_data.get_path("data-files/drcog_lulc_2018.tif")
         with TemporaryDirectory() as tmp_dir:
             # Run your custom create-item command and validate
 
@@ -40,6 +40,7 @@ class CommandsTest(CliTestCase):
                     "drcog-lulc",
                     "create-item",
                     asset_href,
+                    "2018",
                     destination,
                 ]
             )
@@ -49,7 +50,7 @@ class CommandsTest(CliTestCase):
             self.assertEqual(len(jsons), 1)
 
             item = pystac.read_file(destination)
-            self.assertEqual(item.id, "drcog-lulc-hr-pilot")
+            self.assertEqual(item.id, "drcog-lulc-2018")
             # self.assertEqual(item.other_attr...
 
             item.validate()
