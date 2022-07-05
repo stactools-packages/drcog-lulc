@@ -108,4 +108,4 @@ DATA_LINK = Link(
     title="DRCOG_Final_Classification",
 )
 
-DEFAULT_TILE_SIZE = 10000  # meters
+DEFAULT_TILE_SIZE = 10000

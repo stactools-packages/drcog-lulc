@@ -98,7 +98,8 @@ def create_drcog_lulc_command(cli):
                 the lower left corner of the area to be tiled.
             origin_y (int): Y coordinate of the tile grid origin. The origin is
                 the lower left corner of the area to be tiled.
-            size (int, optional): Tile size in meters. Default is 10000.
+            size (int, optional): Tile size in linear units of data, e.g., 
+                meters or feet. Default is 10000.
             nodata (int, optional): nodata value to use for tiled COGs. Only
                 necessary if the INFILE GeoTIFF does not contain a correct
                 nodata value.
