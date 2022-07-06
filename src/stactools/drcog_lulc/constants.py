@@ -107,5 +107,3 @@ DATA_LINK = Link(
     target="https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
     title="DRCOG_Final_Classification",
 )
-
-DEFAULT_TILE_SIZE = 10000
