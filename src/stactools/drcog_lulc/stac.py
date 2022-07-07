@@ -5,7 +5,6 @@ from typing import Optional
 import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
-from pystac.extensions.projection import ItemProjectionExtension
 from pystac.extensions.raster import RasterExtension
 from stactools.core.io import ReadHrefModifier
 
