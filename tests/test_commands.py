@@ -36,13 +36,12 @@ class CommandsTest(CliTestCase):
             # Run your custom create-item command and validate
 
             # Example:
-            destination = os.path.join(tmp_dir, "item.json")
             result = self.run_command(
                 [
                     "drcog-lulc",
                     "create-item",
                     asset_href,
-                    destination,
+                    tmp_dir,
                 ]
             )
             self.assertEqual(result.exit_code, 0, msg="\n{}".format(result.output))
@@ -50,7 +49,8 @@ class CommandsTest(CliTestCase):
             jsons = [p for p in os.listdir(tmp_dir) if p.endswith(".json")]
             self.assertEqual(len(jsons), 1)
 
-            item = pystac.read_file(destination)
+            item_path = os.path.join(tmp_dir, "DRCOG_2018_LULC_E3220000_N1710000.json")
+            item = pystac.read_file(item_path)
             self.assertEqual(item.id, "DRCOG_2018_LULC_E3220000_N1710000")
             # self.assertEqual(item.other_attr...
 

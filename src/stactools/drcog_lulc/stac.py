@@ -7,6 +7,7 @@ import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
 from pystac.extensions.raster import RasterExtension
+from pystac.utils import make_absolute_href
 from stactools.core.io import ReadHrefModifier
 
 from stactools.drcog_lulc import constants
@@ -43,7 +44,7 @@ def create_item(
     item.common_metadata.mission = constants.MISSION[year]
 
     asset_dict = constants.ASSET_PROPS.copy()
-    asset_dict["href"] = asset_href
+    asset_dict["href"] = make_absolute_href(asset_href)
     item.add_asset("data", Asset.from_dict(asset_dict))
 
     RasterExtension.add_to(item)
