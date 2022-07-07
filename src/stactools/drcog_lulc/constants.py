@@ -14,8 +14,14 @@ from pystac import (
 from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_ID = {2018: "drcog-lulc-2018", 2020: "drcog-lulc-2020"}
-ITEM_DESCRIPTION = {2018: "DRCOG LULC at 1m (3.28ft) resolution", 2020: "DRCOG LULC at 1ft resolution"}
-MISSION = {2018: "DRCOG LULC pilot study covering 1,000 square miles", 2020: "DRCOG LULC study covering 6,000 square miles"}
+ITEM_DESCRIPTION = {
+    2018: "DRCOG LULC at 1m (3.28ft) resolution",
+    2020: "DRCOG LULC at 1ft resolution",
+}
+MISSION = {
+    2018: "DRCOG LULC pilot study covering 1,000 square miles",
+    2020: "DRCOG LULC study covering 6,000 square miles",
+}
 CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
 )
@@ -38,7 +44,11 @@ ASSET_PROPS: Dict[str, Any] = {
             {"value": 1, "description": "Structures", "color_hint": "FF0000"},
             {"value": 2, "description": "Impervious Surfaces", "color_hint": "B2B2B2"},
             {"value": 3, "description": "Water", "color_hint": "00A9E6"},
-            {"value": 4, "description": "Prairie/Grassland/Natural Ground Cover", "color_hint": "C7D79E"},
+            {
+                "value": 4,
+                "description": "Prairie/Grassland/Natural Ground Cover",
+                "color_hint": "C7D79E",
+            },
             {"value": 5, "description": "Tree Canopy", "color_hint": "267300"},
             {"value": 6, "description": "Turf/Irrigated Land", "color_hint": "70A800"},
             {"value": 7, "description": "Barren Land", "color_hint": "FFEBAF"},
