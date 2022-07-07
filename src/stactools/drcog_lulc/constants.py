@@ -63,10 +63,8 @@ PROVIDERS = [
     Provider(
         name="Denver Regional Council of Governments",
         roles=[
-            ProviderRole.LICENSOR,
             ProviderRole.PRODUCER,
-            ProviderRole.HOST,
-            ProviderRole.PROCESSOR,
+            ProviderRole.LICENSOR,
         ],
         url=(
             "https://drcog.org/services-and-resources/data-maps-and-modeling/"
@@ -75,7 +73,22 @@ PROVIDERS = [
     )
 ]
 EXTENT = Extent(
-    SpatialExtent([[-104.867784, 39.549871, -104.641093, 39.667712]]),
+    SpatialExtent(
+        [
+            [
+                -105.93962510864995,
+                39.10438697007073,
+                -103.66801443832743,
+                40.320593119647256,
+            ],
+            [
+                -105.54671456161505,
+                39.54013841830152,
+                -104.46335720577567,
+                39.94430501943824,
+            ],
+        ]
+    ),
     TemporalExtent([[datetime(2018, 1, 1), datetime(2020, 12, 31, 23, 59, 59)]]),
 )
 SUMMARIES = Summaries({"mission": [MISSION]})

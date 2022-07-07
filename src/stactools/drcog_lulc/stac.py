@@ -24,6 +24,7 @@ def create_item(
         asset_href (str): An href to a COG containing a tile of classication data.
         read_href_modifier (Callable[[str], str]): An optional function to
             modify hrefs (e.g. to add a token to a url).
+
     Returns:
         Item: STAC Item object representing the landcover tile
     """
