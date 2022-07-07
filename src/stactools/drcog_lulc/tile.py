@@ -94,7 +94,8 @@ def remove_nodata(indir: str, nodata_dir: str) -> None:
         nodata_dir (str): New directory for the TIF files that contain only
             nodata values.
     """
-    os.mkdir(nodata_dir)
+    if not os.path.exists(nodata_dir):
+        os.mkdir(nodata_dir)
 
     tif_files = glob(f"{indir}/*.tif")
     for tif_file in tif_files:

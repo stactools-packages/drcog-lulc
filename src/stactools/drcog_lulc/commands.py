@@ -6,7 +6,6 @@ import click
 from pystac import CatalogType
 
 from stactools.drcog_lulc import stac
-from stactools.drcog_lulc.constants import DEFAULT_TILE_SIZE
 from stactools.drcog_lulc.tile import remove_nodata, tile
 
 logger = logging.getLogger(__name__)
@@ -60,10 +59,11 @@ def create_drcog_lulc_command(cli):
     def create_item_command(source: str, year: int, destination: str):
         """Creates a STAC Item
 
+        \b
         Args:
             source (str): HREF of the Asset associated with the Item
-            destination (str): An HREF for the STAC Collection
             year (int): year of data collection
+            destination (str): An HREF for the STAC Collection
         """
         item = stac.create_item(source, year)
 
@@ -71,14 +71,12 @@ def create_drcog_lulc_command(cli):
 
         return None
 
-    @drcog_lulc.command("tile", help="Tiles a GeoTIFF to a grid of COGs")
+    @drcog_lulc.command("tile", short_help="Tiles a GeoTIFF to a grid of COGs")
     @click.argument("INFILE")
     @click.argument("OUTDIR")
     @click.argument("ORIGIN_X", type=int)
     @click.argument("ORIGIN_Y", type=int)
-    @click.option(
-        "-s", "--size", type=int, default=DEFAULT_TILE_SIZE, help="Tile size in meters"
-    )
+    @click.argument("SIZE", type=int)
     @click.option("-n", "--nodata", type=int, help="nodata value")
     def tile_command(
         infile: str,
@@ -98,15 +96,19 @@ def create_drcog_lulc_command(cli):
                 the lower left corner of the area to be tiled.
             origin_y (int): Y coordinate of the tile grid origin. The origin is
                 the lower left corner of the area to be tiled.
-            size (int, optional): Tile size in meters. Default is 10000.
+            size (int, optional): Tile size in linear units of data, e.g.,
+                meters or feet.
             nodata (int, optional): nodata value to use for tiled COGs. Only
                 necessary if the INFILE GeoTIFF does not contain a correct
                 nodata value.
         """
         tile(infile, outdir, size, origin_x, origin_y, nodata)
 
+        return None
+
     @drcog_lulc.command(
-        "remove-nodata-tifs", help="Removes TIF files that contain only nodata values"
+        "remove-nodata-tifs",
+        short_help="Removes TIF files that contain only nodata values",
     )
     @click.argument("INDIR")
     @click.option("-n", "--nodata_dir", help="directory to place nodata TIF files")
@@ -130,5 +132,7 @@ def create_drcog_lulc_command(cli):
         if nodata_dir is None:
             nodata_dir = os.path.join(indir, "nodata_tifs")
         remove_nodata(indir, nodata_dir)
+
+        return None
 
     return drcog_lulc

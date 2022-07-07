@@ -1,8 +1,9 @@
 import stactools.core
 
 from stactools.drcog_lulc.stac import create_collection, create_item
+from stactools.drcog_lulc.tile import remove_nodata, tile
 
-__all__ = ["create_collection", "create_item"]
+__all__ = ["create_collection", "create_item", "tile", "remove_nodata"]
 
 stactools.core.use_fsspec()
 
