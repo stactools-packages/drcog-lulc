@@ -92,7 +92,7 @@ EXTENT = Extent(
     ),
     TemporalExtent([[datetime(2018, 1, 1), datetime(2020, 12, 31, 23, 59, 59)]]),
 )
-SUMMARIES = Summaries({"mission": [MISSION]})
+SUMMARIES = Summaries({"mission": list(MISSION.values())})
 ITEM_ASSETS = {"data": AssetDefinition(ASSET_PROPS)}
 REPORT_LINK = Link(
     rel="describedby",
