@@ -49,9 +49,6 @@ def create_item(
     return item
 
 
-create_item("tests/data-files/drcog_lulc_2018.tif", 2018)
-
-
 def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
     """Creates a STAC Collection for the 2018 DRCOG LULC classification
     product.
