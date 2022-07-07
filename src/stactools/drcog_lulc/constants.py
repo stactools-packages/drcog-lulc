@@ -37,6 +37,7 @@ ASSET_PROPS: Dict[str, Any] = {
                 "description": "Classification values",
                 "sampling": "area",
                 "data_type": "uint8",
+                "unit": "usft",
                 "spatial_resolution": 1,
             }
         ],
