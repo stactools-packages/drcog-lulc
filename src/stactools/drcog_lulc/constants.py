@@ -14,9 +14,14 @@ from pystac import (
 from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_ID = {2018: "drcog-lulc-2018", 2020: "drcog-lulc-2020"}
-ITEM_DESCRIPTION = "DRCOG LULC at 1m resolution"
-MISSION = "DRCOG LULC"
-EPSG = 26913
+ITEM_DESCRIPTION = {
+    2018: "DRCOG LULC at 1m (3.28ft) resolution",
+    2020: "DRCOG LULC at 1ft resolution",
+}
+MISSION = {
+    2018: "DRCOG LULC pilot study covering 1,000 square miles",
+    2020: "DRCOG LULC study covering 6,000 square miles",
+}
 CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
 )
@@ -54,7 +59,7 @@ ASSET_PROPS: Dict[str, Any] = {
 
 COLLECTION_ID = "drcog-lulc"
 COLLECTION_TITLE = "DRCOG LULC"
-COLLECTION_DESCRIPTION = "The Denver Regional Council of Governments (DRCOG) Land Use/Land Cover (LULC) datasets are developed in partnership with Babbit Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center (CIC). DRCOG LULC includes 2018 data covering 1,000 square miles and 2020 data covering 6,000 square miles of the Denver, Colorado region at 1 meter resolution. The data is based on USDA's 1 meter National Agricultural Imagery Program (NAIP) aerial imagery and leaf-off aerial ortho-imagery captured as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution)."  # noqa
+COLLECTION_DESCRIPTION = "The Denver Regional Council of Governments (DRCOG) Land Use/Land Cover (LULC) datasets are developed in partnership with Babbit Center for Land and Water Policy and the Chesapeake Conservancy's Conservation Innovation Center (CIC). DRCOG LULC includes 2018 data at 1m (3.28ft) resolution covering 1,000 square miles and 2020 data at 1ft resolution covering 6,000 square miles of the Denver, Colorado region. The data is based on USDA's 1 meter National Agricultural Imagery Program (NAIP) aerial imagery and leaf-off aerial ortho-imagery captured as part of the Denver Regional Aerial Photography Project (6-inch resolution everywhere except the mountainous regions to the west, which came in 1-foot resolution)."  # noqa
 LICENSE = "proprietary"
 LICENSE_LINK = Link(
     rel="license", target="https://drcog.org/legal-terms", title="DRCOG Legal Terms"

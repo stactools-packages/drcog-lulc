@@ -5,7 +5,6 @@ from typing import Optional
 import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
-from pystac.extensions.projection import ItemProjectionExtension
 from pystac.extensions.raster import RasterExtension
 from stactools.core.io import ReadHrefModifier
 
@@ -34,12 +33,9 @@ def create_item(
     item.common_metadata.start_datetime = datetime(year, 1, 1)
     item.common_metadata.end_datetime = datetime(year, 12, 31, 23, 59, 59)
     item.datetime = None
-    item.common_metadata.description = constants.ITEM_DESCRIPTION
+    item.common_metadata.description = constants.ITEM_DESCRIPTION[year]
     item.common_metadata.created = datetime.now(tz=timezone.utc)
-    item.common_metadata.mission = constants.MISSION
-
-    item_proj = ItemProjectionExtension.ext(item, add_if_missing=True)
-    item_proj.epsg = constants.EPSG
+    item.common_metadata.mission = constants.MISSION[year]
 
     asset_dict = constants.ASSET_PROPS["data"].copy()
     asset_dict["href"] = asset_href
