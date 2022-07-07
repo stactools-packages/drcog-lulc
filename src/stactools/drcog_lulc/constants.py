@@ -26,7 +26,8 @@ CLASSIFICATION_SCHEMA = (
 
 # fmt: off
 ASSET_PROPS: Dict[str, Any] = {
-    "title": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",  # noqa
+    "title": "DRCOG LULC",
+    "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",  # noqa
     "type": "image/tiff; application=geotiff; profile=cloud-optimized",
     "roles": ["data"],
     "raster:bands": [
