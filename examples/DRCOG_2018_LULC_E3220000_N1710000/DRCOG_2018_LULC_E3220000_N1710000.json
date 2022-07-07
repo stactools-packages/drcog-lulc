@@ -1,26 +1,26 @@
 {
   "type": "Feature",
   "stac_version": "1.0.0",
-  "id": "drcog-lulc-2020",
+  "id": "DRCOG_2018_LULC_E3220000_N1710000",
   "properties": {
-    "proj:epsg": 6428,
+    "proj:epsg": 2232,
     "proj:transform": [
-      0.9999982795920432,
+      3.28083333333333,
       0.0,
-      3174843.5855,
+      3219998.0655584796,
       0.0,
-      -0.9999430952381071,
-      1772927.0093
+      -3.280833333333333,
+      1740001.0677313006
     ],
     "proj:shape": [
-      7140,
-      9707
+      9144,
+      9144
     ],
-    "start_datetime": "2020-01-01T00:00:00Z",
-    "end_datetime": "2020-12-31T23:59:59Z",
-    "description": "DRCOG LULC at 1ft resolution",
-    "created": "2022-07-07T14:48:39.923291Z",
-    "mission": "DRCOG LULC study covering 6,000 square miles",
+    "start_datetime": "2018-01-01T00:00:00Z",
+    "end_datetime": "2018-12-31T23:59:59Z",
+    "created": "2022-07-07T20:42:10.895779Z",
+    "description": "2018 Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) at 3.28ft (1m) resolution",
+    "mission": "2018 DRCOG LULC pilot study covering 1,000 square miles",
     "datetime": null
   },
   "geometry": {
@@ -28,40 +28,60 @@
     "coordinates": [
       [
         [
-          -104.841928,
-          39.934064
+          -104.610516,
+          39.779403
         ],
         [
-          -104.841744,
-          39.953662
+          -104.60947,
+          39.861753
         ],
         [
-          -104.876366,
-          39.95385
+          -104.716328,
+          39.862512
         ],
         [
-          -104.876541,
-          39.934252
+          -104.717249,
+          39.78016
         ],
         [
-          -104.841928,
-          39.934064
+          -104.610516,
+          39.779403
         ]
       ]
     ]
   },
-  "links": [],
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    }
+  ],
   "assets": {
     "data": {
-      "href": "tests/data-files/drcog_lulc_2020.tif",
+      "href": "../../tests/data-files/DRCOG_2018_LULC_E3220000_N1710000.tif",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "DRCOG LULC",
-      "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",
+      "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",
       "raster:bands": [
         {
           "description": "Classification values",
           "sampling": "area",
           "data_type": "uint8",
+          "unit": "usft",
           "spatial_resolution": 1
         }
       ],
@@ -113,14 +133,15 @@
     }
   },
   "bbox": [
-    -104.876541,
-    39.934064,
-    -104.841744,
-    39.95385
+    -104.717249,
+    39.779403,
+    -104.60947,
+    39.862512
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
     "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
-  ]
+  ],
+  "collection": "drcog-lulc"
 }

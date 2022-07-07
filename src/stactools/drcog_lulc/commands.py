@@ -26,6 +26,7 @@ def create_drcog_lulc_command(cli):
         short_help="Creates a STAC collection",
     )
     @click.argument("destination")
+    @click.option("-f", "--file-list", help="File containing list of COG tile HREFs")
     @click.option(
         "--validate/--no-validate",
         help="Validate the collection before saving",
@@ -33,17 +34,28 @@ def create_drcog_lulc_command(cli):
     )
     def create_collection_command(
         destination: str,
+        file_list: Optional[str],
         validate: bool,
     ):
-        """Creates a STAC Collection
+        """Creates a STAC Collection.
 
         \b
         Args:
             destination (str): The destination directory
+            file_list (str): Text file containing one HREF per line. The HREFs
+            should point to COG classification tiles.
             asset_href (optional, str): Href of asset to create an item, which
                 will be added to the collection
         """
         collection = stac.create_collection()
+
+        if file_list:
+            with open(file_list) as f:
+                cog_hrefs = [os.path.abspath(line.strip()) for line in f.readlines()]
+            for cog_href in cog_hrefs:
+                item = stac.create_item(cog_href)
+                collection.add_item(item)
+
         collection.normalize_hrefs(destination)
         if validate:
             collection.validate_all()

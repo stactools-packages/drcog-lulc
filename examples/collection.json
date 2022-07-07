@@ -24,6 +24,16 @@
       "rel": "original",
       "href": "https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
       "title": "DRCOG_Final_Classification"
+    },
+    {
+      "rel": "item",
+      "href": "./DRCOG_2018_LULC_E3220000_N1710000/DRCOG_2018_LULC_E3220000_N1710000.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./DRCOG_2020_LULC_E2880000_N1680000/DRCOG_2020_LULC_E2880000_N1680000.json",
+      "type": "application/json"
     }
   ],
   "stac_extensions": [
@@ -33,14 +43,18 @@
   ],
   "item_assets": {
     "data": {
-      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "DRCOG LULC",
-      "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",
+      "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
       "raster:bands": [
         {
           "description": "Classification values",
           "sampling": "area",
           "data_type": "uint8",
+          "unit": "usft",
           "spatial_resolution": 1
         }
       ],
@@ -85,9 +99,6 @@
           "description": "Cropland",
           "color_hint": "FFAE42"
         }
-      ],
-      "roles": [
-        "data"
       ]
     }
   },
@@ -96,10 +107,16 @@
     "spatial": {
       "bbox": [
         [
-          -104.867784,
-          39.549871,
-          -104.641093,
-          39.667712
+          -105.93962510864995,
+          39.10438697007073,
+          -103.66801443832743,
+          40.320593119647256
+        ],
+        [
+          -105.54671456161505,
+          39.54013841830152,
+          -104.46335720577567,
+          39.94430501943824
         ]
       ]
     },
@@ -123,20 +140,16 @@
     {
       "name": "Denver Regional Council of Governments",
       "roles": [
-        "licensor",
         "producer",
-        "host",
-        "processor"
+        "licensor"
       ],
       "url": "https://drcog.org/services-and-resources/data-maps-and-modeling/regional-land-use-land-cover-project"
     }
   ],
   "summaries": {
     "mission": [
-      {
-        "2018": "DRCOG LULC pilot study covering 1,000 square miles",
-        "2020": "DRCOG LULC study covering 6,000 square miles"
-      }
+      "2018 DRCOG LULC pilot study covering 1,000 square miles",
+      "2020 DRCOG LULC study covering 6,000 square miles"
     ]
   }
 }

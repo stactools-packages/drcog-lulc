@@ -17,11 +17,12 @@ logger = logging.getLogger(__name__)
 def create_item(
     asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
 ) -> Item:
-    """Create a STAC Item with a single Asset for a COG tile of the
-    DRCOG LULC classification product.
+    """Create a STAC Item with a single Asset for a COG tile of the DRCOG LULC
+    classification product.
 
     Args:
-        asset_href (str): An href to a COG containing a tile of classication data.
+        asset_href (str): An href to a COG containing a tile of classification
+            data.
         read_href_modifier (Callable[[str], str]): An optional function to
             modify hrefs (e.g. to add a token to a url).
 
@@ -54,11 +55,12 @@ def create_item(
 
 
 def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
-    """Creates a STAC Collection for the 2018 DRCOG LULC classification
+    """Creates a STAC Collection for the 2018 and 2020 DRCOG LULC classification
     product.
 
     Args:
         collection_id (str): Desired ID for the STAC Collection.
+
     Returns:
         Collection: The created STAC Collection.
     """
