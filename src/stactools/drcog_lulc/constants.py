@@ -13,7 +13,6 @@ from pystac import (
 )
 from pystac.extensions.item_assets import AssetDefinition
 
-ITEM_ID = {2018: "drcog-lulc-2018", 2020: "drcog-lulc-2020"}
 ITEM_DESCRIPTION = {
     2018: "DRCOG LULC at 1m (3.28ft) resolution",
     2020: "DRCOG LULC at 1ft resolution",

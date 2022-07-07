@@ -21,12 +21,12 @@ class StacTest(unittest.TestCase):
 
     def test_create_2018(self):
         href = test_data.get_path("data-files/DRCOG_2018_LULC_E3220000_N1710000.tif")
-        item = stac.create_item(href, year=2018)
-        self.assertEqual(item.id, "drcog-lulc-2018")
+        item = stac.create_item(href)
+        self.assertEqual(item.id, "DRCOG_2018_LULC_E3220000_N1710000")
         item.validate()
 
     def test_create_2020(self):
         href = test_data.get_path("data-files/DRCOG_2020_LULC_E2880000_N1680000.tif")
-        item = stac.create_item(href, year=2020)
-        self.assertEqual(item.id, "drcog-lulc-2020")
+        item = stac.create_item(href)
+        self.assertEqual(item.id, "DRCOG_2020_LULC_E2880000_N1680000")
         item.validate()

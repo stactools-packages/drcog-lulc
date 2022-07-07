@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -14,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def create_item(
-    asset_href: str, year: int, read_href_modifier: Optional[ReadHrefModifier] = None
+    asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
 ) -> Item:
     """Create a STAC Item with a single Asset for a COG tile of the
     DRCOG LULC classification product.
@@ -26,10 +27,12 @@ def create_item(
     Returns:
         Item: STAC Item object representing the landcover tile
     """
+    id = os.path.splitext(os.path.basename(asset_href))[0]
+    year = int(id.split("_")[1])
 
     item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
 
-    item.id = constants.ITEM_ID[year]
+    item.id = id
     item.common_metadata.start_datetime = datetime(year, 1, 1)
     item.common_metadata.end_datetime = datetime(year, 12, 31, 23, 59, 59)
     item.datetime = None

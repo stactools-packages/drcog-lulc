@@ -54,18 +54,16 @@ def create_drcog_lulc_command(cli):
 
     @drcog_lulc.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
-    @click.argument("year", type=int)
     @click.argument("destination")
-    def create_item_command(source: str, year: int, destination: str):
+    def create_item_command(source: str, destination: str):
         """Creates a STAC Item
 
         \b
         Args:
             source (str): HREF of the Asset associated with the Item
-            year (int): year of data collection
             destination (str): An HREF for the STAC Collection
         """
-        item = stac.create_item(source, year)
+        item = stac.create_item(source)
 
         item.save_object(dest_href=destination)
 
