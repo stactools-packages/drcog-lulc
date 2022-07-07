@@ -1,26 +1,26 @@
 {
   "type": "Feature",
   "stac_version": "1.0.0",
-  "id": "drcog-lulc-2018",
+  "id": "drcog-lulc-2020",
   "properties": {
-    "proj:epsg": 26913,
+    "proj:epsg": 6428,
     "proj:transform": [
-      1.0,
+      0.9999982795920432,
       0.0,
-      501563.89506094216,
+      3174843.5855,
       0.0,
-      -1.0,
-      4410957.855446822
+      -0.9999430952381071,
+      1772927.0093
     ],
     "proj:shape": [
-      3132,
-      3299
+      7140,
+      9707
     ],
-    "start_datetime": "2018-01-01T00:00:00Z",
-    "end_datetime": "2018-12-31T23:59:59Z",
-    "description": "DRCOG LULC at 1m (3.28ft) resolution",
-    "created": "2022-07-06T21:44:30.646042Z",
-    "mission": "DRCOG LULC pilot study covering 1,000 square miles",
+    "start_datetime": "2020-01-01T00:00:00Z",
+    "end_datetime": "2020-12-31T23:59:59Z",
+    "description": "DRCOG LULC at 1ft resolution",
+    "created": "2022-07-07T14:48:39.923291Z",
+    "mission": "DRCOG LULC study covering 6,000 square miles",
     "datetime": null
   },
   "geometry": {
@@ -28,24 +28,24 @@
     "coordinates": [
       [
         [
-          -104.94318,
-          39.820407
+          -104.841928,
+          39.934064
         ],
         [
-          -104.943156,
-          39.848627
+          -104.841744,
+          39.953662
         ],
         [
-          -104.98172,
-          39.848639
+          -104.876366,
+          39.95385
         ],
         [
-          -104.981727,
-          39.82042
+          -104.876541,
+          39.934252
         ],
         [
-          -104.94318,
-          39.820407
+          -104.841928,
+          39.934064
         ]
       ]
     ]
@@ -53,7 +53,7 @@
   "links": [],
   "assets": {
     "data": {
-      "href": "tests/data-files/drcog_lulc_2018.tif",
+      "href": "tests/data-files/drcog_lulc_2020.tif",
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "DRCOG LULC",
       "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",
@@ -113,10 +113,10 @@
     }
   },
   "bbox": [
-    -104.981727,
-    39.820407,
-    -104.943156,
-    39.848639
+    -104.876541,
+    39.934064,
+    -104.841744,
+    39.95385
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/projection/v1.0.0/schema.json",

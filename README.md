@@ -28,7 +28,7 @@ This repository will assist you in the generation of STAC files for the Denver R
 To create a STAC `Item`:
 
 ```bash
-stac drcog-lulc create-item tests/data-files/drcog_lulc_2018.tif item.json
+stac drcog-lulc create-item tests/data-files/drcog_lulc_2018.tif 2018 examples/drcog-lulc-2018/drcog-lulc-2018.json
 ```
 
 To create a STAC `Collection` from a list of DRCOG asset hrefs:
