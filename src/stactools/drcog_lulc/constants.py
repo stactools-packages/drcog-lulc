@@ -13,12 +13,12 @@ from pystac import (
 from pystac.extensions.item_assets import AssetDefinition
 
 ITEM_DESCRIPTION = {
-    2018: "DRCOG LULC at 1m (3.28ft) resolution",
-    2020: "DRCOG LULC at 1ft resolution",
+    2018: "2018 Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) at 3.28ft (1m) resolution",  # noqa
+    2020: "2020 Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) at 1ft resolution",  # noqa
 }
 MISSION = {
-    2018: "DRCOG LULC pilot study covering 1,000 square miles",
-    2020: "DRCOG LULC study covering 6,000 square miles",
+    2018: "2018 DRCOG LULC pilot study covering 1,000 square miles",
+    2020: "2020 DRCOG LULC study covering 6,000 square miles",
 }
 CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
