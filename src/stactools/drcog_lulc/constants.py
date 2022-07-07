@@ -26,10 +26,10 @@ CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
 )
 
+# fmt: off
 ASSET_PROPS: Dict[str, Any] = {
     "data": {
-        "title": "DRCOG LULC",
-        "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) classifications",  # noqa
+        "title": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",  # noqa
         "type": "image/tiff; application=geotiff; profile=cloud-optimized",
         "roles": ["data"],
         "raster:bands": [
@@ -45,11 +45,7 @@ ASSET_PROPS: Dict[str, Any] = {
             {"value": 1, "description": "Structures", "color_hint": "FF0000"},
             {"value": 2, "description": "Impervious Surfaces", "color_hint": "B2B2B2"},
             {"value": 3, "description": "Water", "color_hint": "00A9E6"},
-            {
-                "value": 4,
-                "description": "Prairie/Grassland/Natural Ground Cover",
-                "color_hint": "C7D79E",
-            },
+            {"value": 4, "description": "Prairie/Grassland/Natural Ground Cover", "color_hint": "C7D79E"},   # noqa
             {"value": 5, "description": "Tree Canopy", "color_hint": "267300"},
             {"value": 6, "description": "Turf/Irrigated Land", "color_hint": "70A800"},
             {"value": 7, "description": "Barren Land", "color_hint": "FFEBAF"},
@@ -57,6 +53,7 @@ ASSET_PROPS: Dict[str, Any] = {
         ],
     }
 }
+# fmt: on
 
 COLLECTION_ID = "drcog-lulc"
 COLLECTION_TITLE = "DRCOG LULC"
@@ -91,7 +88,6 @@ ITEM_ASSETS = {
         {
             "type": MediaType.COG,
             "title": ASSET_PROPS["data"]["title"],
-            "description": ASSET_PROPS["data"]["description"],
             "raster:bands": ASSET_PROPS["data"]["raster:bands"],
             "classification:classes": ASSET_PROPS["data"]["classification:classes"],
             "roles": ASSET_PROPS["data"]["roles"],
