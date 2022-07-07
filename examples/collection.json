@@ -13,16 +13,19 @@
     {
       "rel": "license",
       "href": "https://drcog.org/legal-terms",
+      "type": "text/html",
       "title": "DRCOG Legal Terms"
     },
     {
       "rel": "describedby",
       "href": "https://gis.drcog.org/rdc/supplemental/lulc_pilot_report.zip",
+      "type": "application/zip",
       "title": "Supplemental Information"
     },
     {
       "rel": "original",
       "href": "https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
+      "type": "application/zip",
       "title": "DRCOG_Final_Classification"
     },
     {
