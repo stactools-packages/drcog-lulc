@@ -33,9 +33,6 @@ class CommandsTest(CliTestCase):
             "data-files/DRCOG_2018_LULC_E3220000_N1710000.tif"
         )
         with TemporaryDirectory() as tmp_dir:
-            # Run your custom create-item command and validate
-
-            # Example:
             result = self.run_command(
                 [
                     "drcog-lulc",
@@ -52,6 +49,5 @@ class CommandsTest(CliTestCase):
             item_path = os.path.join(tmp_dir, "DRCOG_2018_LULC_E3220000_N1710000.json")
             item = pystac.read_file(item_path)
             self.assertEqual(item.id, "DRCOG_2018_LULC_E3220000_N1710000")
-            # self.assertEqual(item.other_attr...
 
             item.validate()
