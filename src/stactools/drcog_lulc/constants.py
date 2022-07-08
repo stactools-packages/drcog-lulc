@@ -20,6 +20,7 @@ MISSION = {
     2018: "2018 DRCOG LULC pilot study covering 1,000 square miles",
     2020: "2020 DRCOG LULC study covering 6,000 square miles",
 }
+RESOLUTION = {2018: 1, 2020: 0.3}
 CLASSIFICATION_SCHEMA = (
     "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
 )
@@ -36,7 +37,6 @@ ASSET_PROPS: Dict[str, Any] = {
             "sampling": "area",
             "data_type": "uint8",
             "unit": "usft",
-            "spatial_resolution": 1,
         }
     ],
     "classification:classes": [

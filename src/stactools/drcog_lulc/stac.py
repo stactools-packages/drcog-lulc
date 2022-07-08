@@ -1,3 +1,4 @@
+import copy
 import logging
 import os
 from datetime import datetime, timezone
@@ -43,8 +44,9 @@ def create_item(
     item.common_metadata.description = constants.ITEM_DESCRIPTION[year]
     item.common_metadata.mission = constants.MISSION[year]
 
-    asset_dict = constants.ASSET_PROPS.copy()
+    asset_dict = copy.deepcopy(constants.ASSET_PROPS)
     asset_dict["href"] = make_absolute_href(asset_href)
+    asset_dict["raster:bands"][0]["spatial_resolution"] = constants.RESOLUTION[year]
     item.add_asset("data", Asset.from_dict(asset_dict))
 
     RasterExtension.add_to(item)
