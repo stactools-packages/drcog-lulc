@@ -85,7 +85,12 @@ def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collectio
     collection.stac_extensions.append(constants.CLASSIFICATION_SCHEMA)
 
     collection.add_links(
-        [constants.LICENSE_LINK, constants.REPORT_LINK, constants.DATA_LINK]
+        [
+            constants.LICENSE_LINK,
+            constants.REPORT_LINK,
+            constants.DATA_LINK_2018,
+            constants.DATA_LINK_2020,
+        ]
     )
 
     return collection
