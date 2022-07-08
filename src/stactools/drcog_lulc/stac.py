@@ -1,4 +1,6 @@
+import copy
 import logging
+import os
 from datetime import datetime, timezone
 from typing import Optional
 
@@ -6,6 +8,7 @@ import stactools.core.create
 from pystac import Asset, Collection, Item
 from pystac.extensions.item_assets import ItemAssetsExtension
 from pystac.extensions.raster import RasterExtension
+from pystac.utils import make_absolute_href
 from stactools.core.io import ReadHrefModifier
 
 from stactools.drcog_lulc import constants
@@ -14,31 +17,36 @@ logger = logging.getLogger(__name__)
 
 
 def create_item(
-    asset_href: str, year: int, read_href_modifier: Optional[ReadHrefModifier] = None
+    asset_href: str, read_href_modifier: Optional[ReadHrefModifier] = None
 ) -> Item:
-    """Create a STAC Item with a single Asset for a COG tile of the
-    DRCOG LULC classification product.
+    """Create a STAC Item with a single Asset for a COG tile of the DRCOG LULC
+    classification product.
 
     Args:
-        asset_href (str): An href to a COG containing a tile of classication data.
+        asset_href (str): An href to a COG containing a tile of classification
+            data.
         read_href_modifier (Callable[[str], str]): An optional function to
             modify hrefs (e.g. to add a token to a url).
+
     Returns:
         Item: STAC Item object representing the landcover tile
     """
+    id = os.path.splitext(os.path.basename(asset_href))[0]
+    year = int(id.split("_")[1])
 
     item = stactools.core.create.item(asset_href, read_href_modifier=read_href_modifier)
 
-    item.id = constants.ITEM_ID[year]
+    item.id = id
     item.common_metadata.start_datetime = datetime(year, 1, 1)
     item.common_metadata.end_datetime = datetime(year, 12, 31, 23, 59, 59)
     item.datetime = None
-    item.common_metadata.description = constants.ITEM_DESCRIPTION[year]
     item.common_metadata.created = datetime.now(tz=timezone.utc)
+    item.common_metadata.description = constants.ITEM_DESCRIPTION[year]
     item.common_metadata.mission = constants.MISSION[year]
 
-    asset_dict = constants.ASSET_PROPS["data"].copy()
-    asset_dict["href"] = asset_href
+    asset_dict = copy.deepcopy(constants.ASSET_PROPS)
+    asset_dict["href"] = make_absolute_href(asset_href)
+    asset_dict["raster:bands"][0]["spatial_resolution"] = constants.RESOLUTION[year]
     item.add_asset("data", Asset.from_dict(asset_dict))
 
     RasterExtension.add_to(item)
@@ -50,11 +58,12 @@ def create_item(
 
 
 def create_collection(collection_id: str = constants.COLLECTION_ID) -> Collection:
-    """Creates a STAC Collection for the 2018 DRCOG LULC classification
+    """Creates a STAC Collection for the 2018 and 2020 DRCOG LULC classification
     product.
 
     Args:
         collection_id (str): Desired ID for the STAC Collection.
+
     Returns:
         Collection: The created STAC Collection.
     """

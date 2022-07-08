@@ -25,26 +25,37 @@ def create_drcog_lulc_command(cli):
         "create-collection",
         short_help="Creates a STAC collection",
     )
-    @click.argument("destination")
+    @click.argument("OUTDIR")
+    @click.option("-f", "--file-list", help="File containing list of COG tile HREFs")
     @click.option(
         "--validate/--no-validate",
         help="Validate the collection before saving",
         default=True,
     )
     def create_collection_command(
-        destination: str,
+        outdir: str,
+        file_list: Optional[str],
         validate: bool,
     ):
-        """Creates a STAC Collection
+        """Creates a STAC Collection.
 
         \b
         Args:
-            destination (str): The destination directory
-            asset_href (optional, str): Href of asset to create an item, which
-                will be added to the collection
+            outdir (str): The destination directory.
+            file_list (Optional[str]): Text file containing one HREF per line.
+                The HREFs should point to COG classification tiles.
+            validate (bool): Flag to validate the Collection and all Items.
         """
         collection = stac.create_collection()
-        collection.normalize_hrefs(destination)
+
+        if file_list:
+            with open(file_list) as f:
+                cog_hrefs = [os.path.abspath(line.strip()) for line in f.readlines()]
+            for cog_href in cog_hrefs:
+                item = stac.create_item(cog_href)
+                collection.add_item(item)
+
+        collection.normalize_hrefs(outdir)
         if validate:
             collection.validate_all()
         collection.make_all_asset_hrefs_relative()
@@ -52,22 +63,23 @@ def create_drcog_lulc_command(cli):
 
         return None
 
-    @drcog_lulc.command("create-item", short_help="Create a STAC item")
-    @click.argument("source")
-    @click.argument("year", type=int)
-    @click.argument("destination")
-    def create_item_command(source: str, year: int, destination: str):
+    @drcog_lulc.command("create-item", short_help="Creates a STAC item")
+    @click.argument("INFILE")
+    @click.argument("OUTDIR")
+    def create_item_command(infile: str, outdir: str):
         """Creates a STAC Item
 
         \b
         Args:
-            source (str): HREF of the Asset associated with the Item
-            year (int): year of data collection
-            destination (str): An HREF for the STAC Collection
+            infile (str): HREF of a classificaton COG tile.
+            outdir (str): Directory that will contain the STAC Item.
         """
-        item = stac.create_item(source, year)
-
-        item.save_object(dest_href=destination)
+        item = stac.create_item(infile)
+        item_path = os.path.join(outdir, f"{item.id}.json")
+        item.set_self_href(item_path)
+        item.make_asset_hrefs_relative()
+        item.validate()
+        item.save_object(include_self_link=False)
 
         return None
 
@@ -96,9 +108,8 @@ def create_drcog_lulc_command(cli):
                 the lower left corner of the area to be tiled.
             origin_y (int): Y coordinate of the tile grid origin. The origin is
                 the lower left corner of the area to be tiled.
-            size (int, optional): Tile size in linear units of data, e.g.,
-                meters or feet.
-            nodata (int, optional): nodata value to use for tiled COGs. Only
+            size (int): Tile size in linear units of data, e.g., meters or feet.
+            nodata (Optional[int]): nodata value to use for tiled COGs. Only
                 necessary if the INFILE GeoTIFF does not contain a correct
                 nodata value.
         """

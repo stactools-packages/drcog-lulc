@@ -1,0 +1,147 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "DRCOG_2020_LULC_E2880000_N1680000",
+  "properties": {
+    "proj:epsg": 6428,
+    "proj:transform": [
+      1.0,
+      0.0,
+      2879999.74968392,
+      0.0,
+      -1.0,
+      1690000.750004
+    ],
+    "proj:shape": [
+      10000,
+      10000
+    ],
+    "start_datetime": "2020-01-01T00:00:00Z",
+    "end_datetime": "2020-12-31T23:59:59Z",
+    "created": "2022-07-08T13:19:50.692879Z",
+    "description": "2020 Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) at 1ft resolution",
+    "mission": "2020 DRCOG LULC study covering 6,000 square miles",
+    "datetime": null
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -105.890928,
+          39.699753
+        ],
+        [
+          -105.891081,
+          39.727205
+        ],
+        [
+          -105.926633,
+          39.727082
+        ],
+        [
+          -105.926466,
+          39.699629
+        ],
+        [
+          -105.890928,
+          39.699753
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "DRCOG LULC"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "../../tests/data-files/DRCOG_2020_LULC_E2880000_N1680000.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "DRCOG LULC",
+      "description": "Denver Regional Council of Governments (DRCOG) Land Use Land Cover (LULC) Classifications",
+      "raster:bands": [
+        {
+          "description": "Classification values",
+          "sampling": "area",
+          "data_type": "uint8",
+          "unit": "usft",
+          "spatial_resolution": 0.3
+        }
+      ],
+      "classification:classes": [
+        {
+          "value": 1,
+          "description": "Structures",
+          "color_hint": "FF0000"
+        },
+        {
+          "value": 2,
+          "description": "Impervious Surfaces",
+          "color_hint": "B2B2B2"
+        },
+        {
+          "value": 3,
+          "description": "Water",
+          "color_hint": "00A9E6"
+        },
+        {
+          "value": 4,
+          "description": "Prairie/Grassland/Natural Ground Cover",
+          "color_hint": "C7D79E"
+        },
+        {
+          "value": 5,
+          "description": "Tree Canopy",
+          "color_hint": "267300"
+        },
+        {
+          "value": 6,
+          "description": "Turf/Irrigated Land",
+          "color_hint": "70A800"
+        },
+        {
+          "value": 7,
+          "description": "Barren Land",
+          "color_hint": "FFEBAF"
+        },
+        {
+          "value": 8,
+          "description": "Cropland",
+          "color_hint": "FFAE42"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "bbox": [
+    -105.926633,
+    39.699629,
+    -105.890928,
+    39.727205
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/classification/v1.1.0/schema.json"
+  ],
+  "collection": "drcog-lulc"
+}

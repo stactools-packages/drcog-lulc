@@ -1,0 +1,2 @@
+tests/data-files/DRCOG_2018_LULC_E3220000_N1710000.tif
+tests/data-files/DRCOG_2020_LULC_E2880000_N1680000.tif
