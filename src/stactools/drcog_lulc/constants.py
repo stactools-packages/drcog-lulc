@@ -103,9 +103,16 @@ REPORT_LINK = Link(
     title="Supplemental Information",
     media_type="application/zip",
 )
-DATA_LINK = Link(
+DATA_LINK = [
+    Link(
     rel="original",
-    target="https://data.drcog.org/data?page=1&program%5B0%5D=Regional%20Land%20Cover&q=&sort=title",
-    title="DRCOG_Land_Cover_Data",
+    target="https://landcoverarchive.s3.amazonaws.com/2018/lulc_pilot_raster_2018.zip",
+    title="Land_Cover_Raster_Data_2018",
     media_type="application/zip",
-)
+    ),
+    Link(
+    target="https://landcoverarchive.s3.amazonaws.com/2020/DRCOG_2020_Landcover.zip",
+    title="Land_Cover_Raster_Data_2020",
+    media_type="application/zip",
+    ),
+]
