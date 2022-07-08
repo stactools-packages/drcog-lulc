@@ -105,7 +105,7 @@ REPORT_LINK = Link(
 )
 DATA_LINK = Link(
     rel="original",
-    target="https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
-    title="DRCOG_Final_Classification",
+    target="https://data.drcog.org/data?page=1&program%5B0%5D=Regional%20Land%20Cover&q=&sort=title",
+    title="DRCOG_Land_Cover_Data",
     media_type="application/zip",
 )
