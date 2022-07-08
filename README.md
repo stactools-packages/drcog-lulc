@@ -12,29 +12,30 @@
   - [raster](https://github.com/stac-extensions/raster)
   - [scientific](https://github.com/stac-extensions/scientific)
 
-DRCOG provides the original data in a geodatabase. GDAL, a translator library for raster and vector geospatial data formats, was utilized to generate a cloud optimized GeoTIFF (COG).
-
 This repository will assist you in the generation of STAC files for the Denver Regional Council of Goverments (DRCOG) Land Use Land Cover (LULC) dataset.
+
+DRCOG provides data for 2018 and 2020 in geodatabase form. This package assumes a raster has been extracted from each geodatabase and tiled into smaller cloud optimized GeoTIFF (COG) image files. The tile filenames are expected to contain the prefix `DRCOG_{year}_LULC_`, where `{year}` is either "2018" or "2020".
+
 
 ## Examples
 
 ### STAC objects
 
 - [Collection](examples/collection.json)
-- [Item](examples/drcog-lulc-2018/drcog-lulc-2018.json)
+- [Item](examples/DRCOG_2018_LULC_E3220000_N1710000/DRCOG_2018_LULC_E3220000_N1710000.json)
 
 ### Command-line usage
 
-To create a STAC `Item`:
+To create a STAC `Item` for a 2018 tile:
 
 ```bash
-stac drcog-lulc create-item tests/data-files/drcog_lulc_2018.tif 2018 examples/drcog-lulc-2018/drcog-lulc-2018.json
+stac drcog-lulc create-item tests/data-files/DRCOG_2018_LULC_E3220000_N1710000.tif examples
 ```
 
-To create a STAC `Collection` from a list of DRCOG asset hrefs:
+To create a STAC `Collection` from a file containing a list of DRCOG asset hrefs:
 
 ```bash
-stac drcog-lulc create-collection examples --asset-href tests/data-files/drcog_lulc_2018.tif
+stac drcog-lulc create-collection examples --file-list examples/file-list.txt
 ```
 
 The above `create-collection` command is exactly how the contents of the `examples` directory are generated.
