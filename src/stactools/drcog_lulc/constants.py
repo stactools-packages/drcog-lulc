@@ -103,9 +103,15 @@ REPORT_LINK = Link(
     title="Supplemental Information",
     media_type="application/zip",
 )
-DATA_LINK = Link(
+DATA_LINK_2018 = Link(
     rel="original",
-    target="https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
-    title="DRCOG_Final_Classification",
+    target="https://landcoverarchive.s3.amazonaws.com/2018/lulc_pilot_raster_2018.zip",
+    title="Land_Cover_Raster_Data_2018",
+    media_type="application/zip",
+)
+DATA_LINK_2020 = Link(
+    rel="original",
+    target="https://landcoverarchive.s3.amazonaws.com/2020/DRCOG_2020_Landcover.zip",
+    title="Land_Cover_Raster_Data_2020",
     media_type="application/zip",
 )
