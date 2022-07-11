@@ -1,5 +1,7 @@
 # stactools-drcog-lulc
 
+[![PyPI](https://img.shields.io/pypi/v/stactools-drcog-lulc)](https://pypi.org/project/stactools-drcog-lulc/)
+
 - Name: drcog-lulc
 - Package: `stactools.drcog_lulc`
 - PyPI: https://pypi.org/project/stactools-drcog-lulc/
