@@ -24,9 +24,15 @@
     },
     {
       "rel": "original",
-      "href": "https://www.dropbox.com/s/0v2g1nqigm8604h/DRCOG_Final_Classification.zip?dl=0",
+      "href": "https://landcoverarchive.s3.amazonaws.com/2018/lulc_pilot_raster_2018.zip",
       "type": "application/zip",
-      "title": "DRCOG_Final_Classification"
+      "title": "Land_Cover_Raster_Data_2018"
+    },
+    {
+      "rel": "original",
+      "href": "https://landcoverarchive.s3.amazonaws.com/2020/DRCOG_2020_Landcover.zip",
+      "type": "application/zip",
+      "title": "Land_Cover_Raster_Data_2020"
     },
     {
       "rel": "item",
