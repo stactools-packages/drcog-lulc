@@ -54,6 +54,7 @@ def create_drcog_lulc_command(cli):
             for cog_href in cog_hrefs:
                 item = stac.create_item(cog_href)
                 collection.add_item(item)
+            collection.update_extent_from_items()
 
         collection.normalize_hrefs(outdir)
         if validate:
